@@ -1,2 +1,3 @@
 # DAAE-Rebuttal
-Rebuttal Text for TNNLS-DAAE
+Draft rebuttal Text for TNNLS-DAAE: written in LaTeX
+Should be a private repo, but hey-ho....
