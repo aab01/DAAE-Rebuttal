@@ -346,15 +346,16 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
     \item {\color{red} TO TIDY: Training time will vary based on resource available, choice of framework and machine. The additional computation cost from corruption is minimal, and the computational cost assocated with the adversarial loss is dependant on the size of the discriminator. Comparison of training time is likely to be less meaninful. Instead, we had added additional results to demonstate the benefits of using DAAE or iDAAE compared to other state of art models.}
 \end{itemize}
 
-{\color{red} TO TIDY: In our revised version we include facial attribute classification experients which compare our model to state of the art models rather than PCA, which we hope motivates the models}
+{\color{red} TO TIDY: In our revised version we include facial attribute classification experients which compare our model to state of the art models rather than PCA, which we hope motivates the models futher.}
 
 \section{Reviewer: 3}
 
 Comments to the Author
+{\color{blue}
 The paper introduces two denoising adversarial autoencoders combining concepts from denoising and adversarial autoencoders known in the literature. 
 
 The paper presents an interesting approach for unsupervised representation learning, combining advantages of previously proposed models. The authors also address the issue of generating samples when a posterior of a latent representation based on corrupted input is matched to prior rather than posterior based on uncorrupted input. The authors propose a Markov Chain to generate samples in this case and provide theoretical guarantees for this although here they highly rely on the previous work by Bengio et al 2013, 2014. 
-{\color{blue}
+
 The main concerns regarding the paper are about the experimental section. Although the authors provide a very thorough evaluation of their methods on three different datasets for three different tasks there are still some moments that could potentially improve the value of the paper. First of all, the comparison is provided only with respect to the adversarial autoencoder. It is a very interesting comparison as it allows to empirically evaluate the influence of denoising training of the adversarial autoencoder. On the other hand the proposed methods can be considered as adversarial extension of denoising autoencoders, and it would be interesting to see how adversarial learning to match the prior works in comparison to Kullback-Leibler minimisation used in DVAE, for example.}
 
 \begin{itemize}
@@ -362,8 +363,12 @@ The main concerns regarding the paper are about the experimental section. Althou
     \item For this reason we did not make experiments comparing DVAE with DAAE a priority, rather we focused on comparing DAAE and AAE
 \end{itemize}
 
+{\color{red} In our revised version we have performed additional experiments with the CelebA dataset of colour faces, perfroming facial attribute classification. We compare results to those obtained for well known models including VAE and $\beta$-VAE.}
+
 {\color{blue}
 The second concern regarding the experimental setup is about choice of the prior used in the experiments. Except DAAE with 2D 10-GMM prior that shows poor results and is outperformed by all the competitors the experiments are conducted with Gaussian prior that could have been trained with DVAE and VAE. The main motivation of the proposed methods in compariosn to DVAE claimed by the authors was the possibility of using different more complex priors. It would be good to see this in the experiments.}\newline 
+
+{\color{red} CHECK THAT DVAE is more similar to DAAE than iDAAE: We have now moved the MNIST results to the appendix as we agree that the MNIST results are not meaningful. However, the DVAE is similar to the DAAE, but not the iDAAE. In the iDAAE the $KL$ divergence between $\tilde{q}_\phi(z|x)$ and $p(z)$ is minimized, since $\tilde{q}_\phi(z|x)$ is often a mixture of Gaussian (as stated in the paper), there is no analytic solutional for this $KL$ divergence and so it is still neccesary to implement the model using an adversarial approach.}
 
 
 {\color{blue}(The other drawback mentioned for DVAE that is non-trivial synthesis is also valid for the proposed DAAE but successfully overcome by the authors and could have been overcome for DVAE)}. \newline
