@@ -12,7 +12,7 @@
 
 \maketitle
 \section*{Introduction}
-We would like to thank the reviewers for the clear efforts put into reading, understanding and providing a critique of this draft. We apologise for the missing final page of references, which was an error that crept in on uploading the manuscript.  The {\em original} final page is attached as an appendix to this document, as well as the revised manuscript.  
+We would like to thank the reviewers for the clear efforts put into reading, understanding and providing a critique of this draft. We apologise for the missing final page of references, which was an error that crept in on uploading the manuscript.  The {\em original} final page is attached as an appendix to this document, as well as the revised manuscript. \\
 
 \section*{Reviewer: 1}
 \subsection*{Comments to the Author}
@@ -30,7 +30,7 @@ We agree with this statement, and have now performed much more extensive experim
 
 {\color{blue} The writing of the paper should be further improved as there is a lot of unclear statements and confusing notations throughout the paper (I list some major issues in the detailed comments.).} \\
 
-We are very grateful to the reviewer for this comment, and the effort spent on identifying exactly were there are opportunities for improvement. We have tried to improve the writing generally, and to address the specific issues identified (see, for example, the next section).
+We are very grateful to the reviewer for this comment, and the effort spent on identifying exactly were there are opportunities for improvement. We have tried to improve the writing generally, and to address the specific issues identified (see, for example, the next section). \\
 
 {\color{blue} The criteria of evaluation and datasets in the experiment part are not satisfactory. The results are not sufficient for a good publication. I suggest the authors proofread and rewrite the paper and provide strong experimental results to support the motivation of the method.}\\
 
@@ -48,19 +48,19 @@ The paragraph ``Two broad approaches ...'' (Line 55-60, Column 1, Page 1) should
 We have added references to three papers that use the denoising criterion to train autoencoders.
 These are {\color{red} vincent2010stacked, bengio2013generalized, vincent2008extracting}.  The sentence now reads:\\
 
-{\color{red} Two broad approaches to learning state-of-the-art generative models that do not require labelled training data include: 1) introduction of a denoising criterion \{vincent2010stacked, bengio2013generalized,  vincent2008extracting\} -- where the model learns to reconstruct clean samples from corrupted ones;
+{\color{red} Two broad approaches to learning state-of-the-art generative models that do not require labelled training data include: 1) introduction of a denoising criterion \{vincent2010stacked, bengio2013generalized,  vincent2008extracting\} -- where the model learns to reconstruct clean samples from corrupted ones;}\\
 
 {\color{blue} For 2), both VAEs [6] and GANs [13] use a latent space with a known prior distribution for generation. However, GANs [13] do not regularize the latent space while VAEs [6] do but directly for the training of the recognition model instead of the generative model.}\\
 
-We agree with this. Our initial intention in writing the sentence was to point out that VAEs and GANs both have some constraints on latent space: GANs through the latent space arising from noise sources, and VAEs in the sense of having priors placed on latent space. We realise that this is potentially misleading, so we have removed the phrase ``latent space with a prior distribution''.
+We agree with this. Our initial intention in writing the sentence was to point out that VAEs and GANs both have some constraints on latent space: GANs through the latent space arising from noise sources, and VAEs in the sense of having priors placed on latent space. We realise that this is potentially misleading, so we have removed the phrase ``latent space with a {\color{red} known} prior distribution''. \\
 
-{\color{blue} The author should be careful about the correctness of ``regularisation ... [1], [9], [13] or using … [6], [9], [13]'' and clarify the writing.}
+{\color{blue} The author should be careful about the correctness of ``regularisation ... [1], [9], [13] or using … [6], [9], [13]'' and clarify the writing.} \\
 
 We agree that the sentence was confusing, particulary with regard to the use of the term ``regularisation'' and the choice of references. We have now altered the sentence to read:
 
-``regularisation of the latent space to match a prior \hl{[9], [13]}''
+``regularisation of the latent space to match a prior {\color{red} \{ kingma2013auto, makhzani2015adversarial \}}''
 
-We would liek to make an additional comment here: including GANs was not necessary for us to convey the key ideas: that denoising and regularisation are core components of state of the art generative models. \\
+We would like to make an additional comment here: including GANs was not necessary for us to convey the key ideas: that denoising and regularisation are core components of state of the art generative models. \\
 
 
 {\color{blue}
@@ -84,11 +84,11 @@ Our reason for explicitly pointing this out is to generalise to the case where t
     \begin{quote}
         Bengio  et  al.  [4]  treat  the  encoding  process  as  a  local corruption  process,  that  does  not  need  to  be  learned.
     \end{quote}
-In [4], there is no latent space in the same sense as that for VAEs or GANs. To improve the clarity and visibility of this idea, we have added references \hl{(revised paper...???)}:
+In [4], there is no latent space in the same sense as that for VAEs or GANs. To improve the clarity and visibility of this idea, we have added references {\color{red} has been checked}:
 \begin{quote}
-    In some situations the encoding distribution is chosen rather than learned cite\{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously cite\{kingma2013auto, makhzani2015adversarial, im2015denoising\}
+    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2015denoising\}
 \end{quote}
-Why did we do this?  It allowed us to treat encoding in the most general way, so that we can bring the approach suggested in [4] under the same umbrella as other models. Doing this also allows us to acknowledge Bengio's DAE, but also to distinguish between the ``corruption'' of that model and the noise process of our proposed DAAE more clearly. For example, the approach of [4] does not explicitly define a latent space.  It is also worth pointing out that taking Bengio's corruption process [4] to the extreme is equivalent to having a latent representation which is Gaussian noise \hl{citation needed here; possibly it is the shaping variational something paper}; so this way of thinking seems to be self-consistent.
+Why did we do this?  It allowed us to treat encoding in the most general way, so that we can bring the approach suggested in [4] under the same umbrella as other models. Doing this also allows us to acknowledge Bengio's DAE, but also to distinguish between the ``corruption'' of that model and the noise process of our proposed DAAE more clearly. For example, the approach of [4] does not explicitly define a latent space.  It is also worth pointing out that taking Bengio's corruption process [4] to the extreme is equivalent to having a latent representation which is Gaussian noise \{bachman2015variational\}; so this way of thinking seems to be self-consistent.
 
 
 {\color{blue}
