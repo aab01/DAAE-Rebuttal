@@ -162,6 +162,13 @@ We would also like to point, once again, to the demonstration of the Omniglot da
     \item if we evaluate log-likelihood on samples from alphabets similar to those in the training data the likelihood get better with an extended number iterations.
 \end{itemize}
 
+{\color{red} 
+These observations were made in the original paper as follows:
+ \begin{quote}
+ Conflicting log-likelihood values of generated samples between testing and evaluation datasets means that these measurements are not a clear indication of how the number of sampling iterations affects the visual quality of samples synthesized using a DAAE. In some cases it may be necessary to visually inspect samples in order to assess effects of greater or smaller numbers of sampling iterations. 
+ \end{quote}
+}
+
 
 {\color{blue}
 The main advantage of the proposed method over DVAEs is providing the flexibility to choose complicated priors and posteriors. However, I do not observe any practical benefit of using mixture of Gaussian instead of high-dimensional Gaussian priors in terms of reconstruction error, log likelihood or sample quality. So, the motivation of the method is not well supported according to the current experiments.}\\
