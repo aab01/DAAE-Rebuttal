@@ -156,9 +156,9 @@ We were aware of the literature [1] and did cite Theis, in the last paragraph VI
 \begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable cite\{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
 \end{quote}\\
 
-For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the advantages of iDAAEs over AAEs.  We hope that the revised version of the paper -- with larger face synthesis and experiments on {\color{red} facial attribute} classification -- further emphasises these points. \\
+For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the advantages of iDAAEs over AAEs.  We hope that the revised version of the paper -- with larger face synthesis and experiments on {\color{red} facial attribute} classification -- further emphasises these points.\\
 
-We would also like to point, once again, to the demonstration of the Omniglot dataset, which contains examples of alphabets that are completely absent from the training data. We have since shifted the classification results into one table, so that it is clear that there are separate datasets in Omniglot. Notably (and this is something that enforces the reviewers point):
+We would also like to point, once again, to the demonstration of the Omniglot dataset, which contains examples of alphabets that are completely absent from the training data. We have since {\color{red} moved} the classification results into one table, so that it is clear that {\color{red} they} are separate datasets in Omniglot. Notably (and this is something that enforces the reviewers point):
 
 \begin{itemize}
     \item if we evaluate log-likelihood on samples from alphabets that are different to those in the training data, the log likelihood gets worse with an extended number of iterations
@@ -267,12 +267,20 @@ This work introduces two new types of denoising autoencoders, DAAE and iDAAE. Th
     \begin{quote}
         Compared  to  the  networks  used  for  MNIST,  deeper networks  were  needed  in  order  for  the  loss  functions  to converge.
     \end{quote}
-    \item We also modified the network of makhzani et al. for the sprite dataset:
+    \item We also modified the network of makhzani et al. for the sprite dataset, this is detailed in the original paper as follows:
     \begin{quote}
         For  the  decoder,  we  found  that  it  was  necessary  to  use  a 3-layer  fully  connected  neural  network  in  order  to  capture the  complexity  of  the  sprite  dataset.  However,  by  comparing training and test data reconstruction error during training, we found that using 1000 neurons in each layer led to over-fitting. Rather, we used a 3-layer fully connected neural network with 1000 neurons  in  the  first  layer  and 500 in  each  of  the  last layers.
     \end{quote}
     
 \end{itemize}
+
+{\color{red}
+In our revised version we have encorporated additional experiments on the CelebA dataset, which required us to extend the fully connected AAE to a convolutional version, with similar architecture to the DCGAN, we include the following in our revised paper:
+
+\begin{quote}
+For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iDAAE. The models were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. 
+\end{quote}
+}
 
 {\color{blue}
 (2) In Section V.A., please indicate the specific nonlinear activation functions you used in the intermediate layers of the network.}\newline
@@ -291,15 +299,22 @@ This work introduces two new types of denoising autoencoders, DAAE and iDAAE. Th
 (3) How sensitive are your models to changes in the parameter configuration? Is extensive parameter tuning required in order to achieve your reported results?}\newline
 
 \begin{itemize}
-    \item We did very little hyper parameter tuning. To make our comparisons as "fair" as possible we use the same hyper parameters for each experiment, and the choice for hyper-parameters was based on previous work:
+    \item We did very little hyper parameter tuning. To make our comparisons as ``fair'' as possible we use the same hyper parameters for each experiment, and the choice for hyper-parameters was based on previous work:
     
     \begin{quote}
         In  order  to  compare  models trained on the same datasets, the same network architectures, batch size, learning rate, annealing rate, size of latent code and number of epochs is used for each
     \end{quote}
-    
-    \item TODO add citations to AAE for using the same architecture
-    \item  TODO add citation to  
+      
 \end{itemize}
+
+{\color{red}
+For the additional CelebA experiments, since an AAE had not been trained on the CelebA dataset using our proposed architecture a more extensive hyper paramerter search was performed, this is detailed in the revised paper as follows:
+
+\begin{quote}
+Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop with learning rate $1 \time 10^{-4}$ and momentum of $0.1$ for training the discriminator. We found that using smaller momentum values lead to more blurred images, however larger momentum values prevented the network from converging and made training unstable. When using Adam instead of RMSprop (on the CelebA dataset specifically) we found that the values in the encodings became very large, and not consistent with the prior. The encoding is made up of $200$ units and the prior $200$D Gaussian. The corruption process used to train the DAAE and iDAAE was additive Gaussian noise. We experimented with different noise level, $\sigma$ between $[0.1, 1.0]$, and often found $\sigma=0.25$ to be suitable. For the iDAAE we experimented with $M=2, 5, 20, 50$. We found that $M < 5$ (when $\sigma=1.0$), was not sufficient to train an iDAAE. By comparing histograms of encoded data samples to histograms of the prior, for an iDAAE trained with a particular $M$ value, we are able to see whether $M$ is sufficiently larger or not. We found $M=5$ to be sufficiently large.
+\end{quote}
+
+ }
 
 {\color{blue}
 (4) You use a standard AAE as a benchmark for evaluating DAAE and iDAAE. It would be helpful to also include a regular autoencoder in your results for reference.}\newline
