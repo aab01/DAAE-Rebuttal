@@ -173,14 +173,25 @@ These observations were made in the original paper as follows:
 {\color{blue}
 The main advantage of the proposed method over DVAEs is providing the flexibility to choose complicated priors and posteriors. However, I do not observe any practical benefit of using mixture of Gaussian instead of high-dimensional Gaussian priors in terms of reconstruction error, log likelihood or sample quality. So, the motivation of the method is not well supported according to the current experiments.}\\
 
+
+
 Good question!  The reason is that by supporting mixtures of Gaussians, one can encourage latent space to have an organisation that mirrors the semantic aspects that one wishes to represent in the data. To be clear, we do not suggest {\em replacing} high-dimensional Gaussians, but instead suggest using mixtures of high-dimensional Gaussians.   To take a very simple case, if we have an observation space that is clearly bimodal (containing dogs and cats), then it would seem imminently sensible that latent space should have a distribution that reflects this \hl{need an example for which $z_k$ ``label'' separability is a bad idea vs multimodal version}.\\
 
-\begin{itemize}
-    \item \{TODO...\}
-    \item cite some literature
-    \item not enough room for all experiments.
-    \item Do for faces!
-\end{itemize}
+{\color{red} 
+Further, note that the distribution of encoded samples in the DAAE is a mixture of Gaussian, in the original paper we state this:
+
+\begin{quote}
+If $q_\phi(z|\tilde{x})$ is chosen to be Gaussian, then in many cases $\tilde{q}_\phi(z|x) = \int q_\phi(z|\tilde{x})c(\tilde{x}|x)d \tilde{x}$ will be a mixture of Gaussians.
+\end{quote}
+this is also expressed by Im et al. \{im2015denoising\}.
+}
+
+% \begin{itemize}
+%     \item \{TODO...\}
+%     \item cite some literature
+%     \item not enough room for all experiments.
+%     \item Do for faces!
+% \end{itemize}
 
 {\color{blue}
 As for the classification, the results should be compared with other unsupervised learning methods with adversarial losses like [4].
