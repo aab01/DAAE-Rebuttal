@@ -321,9 +321,11 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 
 \begin{itemize}
     \item Regular autoencoders may not be used for sample synthesis because the latent distribution is not known - only a denoising variant may be used to synthesise samples
-    \item We could have used an autoencoder for classification TODO? 
-    \item We chose to compare to state of art.
+    % \item We could have used an autoencoder for classification
+    % \item We chose to compare to state of art.
 \end{itemize}
+
+{\color{red} In our revised paper, we perform facial attribute classification on the CelebA dataset and compare to well known models including the VAE and $\beta$-VAE.}
 
 {\color{blue}
 (5) All of your experimental results use image datasets. Can you comment on the applicability \& expected performance of your methods on non-image data?}\newline
@@ -333,7 +335,7 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 
 \begin{itemize}
     \item We agree - all experiments should have been performed on uncorrupted data
-    \item We have now done this TODO!
+    \item We have now done this and updated the reconstruction values which are shown in Table IV.
 \end{itemize}
 
 {\color{blue}
@@ -341,8 +343,9 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 
 \begin{itemize}
     \item Standard autoencoders may not be used for sample synthesis
-    \item TODO?
 \end{itemize}
+
+{\color{red} TO TIDY: In our revised version we include facial attribute classification experients which compare our model to state of the art models rather than PCA, which we hope motivates the models}
 
 \section{Reviewer: 3}
 
