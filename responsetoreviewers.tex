@@ -18,11 +18,15 @@ We would like to thank the reviewers for the clear efforts put into reading, und
 \subsection*{Comments to the Author}
 {\color{blue} The paper proposes DAAEs, which use adversarial training to match the posterior distribution to the prior for a denoising autoencoder. The proposed approach is like a combination of existing methods like DAEs, AAEs and DVAEs.}\\
 
-Whilst we do not question the relation of the proposed DAAE and iDAAE to other techniques, we believe that both represent a contribution.  To emphasise the contributions, we have now modified Figure 1 so that the contributions that we propose are clearer, and are seen relative to relevant work.  This differences of the DAAE and iDAAE to the DAEs, the VAE, DVAE and AAE are sufficient to warrant study, and in the revised paper, we provide a much more extensive set of experiments.\\
+Whilst we do not question the relation of the proposed DAAE and iDAAE to other techniques, we believe that both represent a contribution.  To emphasise the contributions, we have now modified Figure 1 {\color{red} to show our models in another colour, } so that the contributions that we propose are clearer, and are seen relative to relevant work.  These differences of the DAAE and iDAAE to the DAEs, the VAE, DVAE and AAE are sufficient to warrant study, and in the revised paper, we provide a much more extensive set of experiments.\\
+
+{\color{red} should we refer to the experiments now? since it does not directly address the comment. And we say it next}
 
 {\color{blue} Some benefits of the proposed method are highlighted when presenting the method but not well supported in the experiments. }\\
 
-We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. \hl{We have introduced tests on robustness to specific image transforms for classification, and we believe these reflect real and non-trivial performance benefits.} \\
+We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. {\color{red} We have performed attribute classification experiments and achieve competative or supervior perfromance in several categories, compared to the VAE, beta-VAE and DIP-VAE.}\\
+
+%\hl{We have introduced tests on robustness to specific image transforms for classification, and we believe these reflect real and non-trivial performance benefits.} \\
 
 {\color{blue} The writing of the paper should be further improved as there is a lot of unclear statements and confusing notations throughout the paper (I list some major issues in the detailed comments.).} \\
 
@@ -30,7 +34,9 @@ We are very grateful to the reviewer for this comment, and the effort spent on i
 
 {\color{blue} The criteria of evaluation and datasets in the experiment part are not satisfactory. The results are not sufficient for a good publication. I suggest the authors proofread and rewrite the paper and provide strong experimental results to support the motivation of the method.}\\
 
-We have shifted the MNIST results to an appendix. We now include experiments on the CelebA face database.  These experiments include image generation (synthesis) which we believe are competitive, and which strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of \hl{attributes} from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE.\\
+We have {\color{red} moved} the MNIST results to an appendix. We now include experiments on the CelebA face database.  These experiments include image generation (synthesis) which we believe are competitive, and which strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of \hl{attributes} from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE {\color{red} as well as the VAE, beta-VAE and DIP-VAE, achieving competative or superior performace on most attributes}.\\
+
+{\color{red} `which we believe are competative` -- I do not think we can say this about the synthesis -- we can say it about the classification tho!}
 
 We have tried to improve the writing generally, and to address the specific issues identified (see, for example, the next section). Extensive proofreading has been performed.
 
@@ -40,9 +46,9 @@ We have tried to improve the writing generally, and to address the specific issu
 The paragraph ``Two broad approaches ...'' (Line 55-60, Column 1, Page 1) should be clarified. For 1), it is better to include some references. }  \\
 
 We have added references to three papers that use the denoising criterion to train autoencoders.
-These are XXX,YYY, and ZZZ.  The sentence now reads:\\
+These are {\color{red} vincent2010stacked, bengio2013generalized, vincent2008extracting}.  The sentence now reads:\\
 
-\hl{Include the specific references and their locations.}
+{\color{red} Two broad approaches to learning state-of-the-art generative models that do not require labelled training data include: 1) introduction of a denoising criterion \{vincent2010stacked, bengio2013generalized,  vincent2008extracting\} -- where the model learns to reconstruct clean samples from corrupted ones;
 
 {\color{blue} For 2), both VAEs [6] and GANs [13] use a latent space with a known prior distribution for generation. However, GANs [13] do not regularize the latent space while VAEs [6] do but directly for the training of the recognition model instead of the generative model.}\\
 
