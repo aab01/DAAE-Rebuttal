@@ -125,7 +125,17 @@ In addition, we have introduced new experiments in facial expression classificat
 {\color{blue}
 The reconstruction results are not so interesting and some of them can be removed. In addition, the reconstruction results on MNIST and Omniglot are inconsistent, which should be analysed in depth. Current version does not provide insight for the phenomena.}\\
 
-We are not sure we understand \hl{the point}.  We have however significantly increased the evaluation, both by demonstrating high-quality synthesis results (see, for exampe XX and YY), and by including evaluation of robustness (shift tolerance and classification performance from latent space).\\
+% We are not sure we understand \hl{the point}.  We have however significantly increased the evaluation, both by demonstrating high-quality synthesis results (see, for exampe XX and YY), and by including evaluation of robustness (shift tolerance and classification performance from latent space).\\
+{\color{red} 
+We now give motivation for reconstruction, we have included the following:
+
+\begin{quote}
+We are interested in reconstruction for several reasons. The first is that if we wish to use encodings for down stream tasks, for example classification, a good indication of whether the encoding is modeling the sample well is to check the reconstructions. For example if the reconstructed image is missing certain features that were present in the original images, it may be that this information is not preserved in the encoding. The second reason is that checking sample reconstructions is also a method to evaluate whether the model has overfit to test samples. The ability to reconstruct samples not seen during training suggests that a model has not overfit. The final reason, is to further motivate AAE, DAAE and iDAAE models as alternatives to GAN based models that are augmented with encoders \{li2017alice\}, for down stream tasks that require good sample reconstruction.
+\end{quote}
+
+}
+
+
 
 {\color{blue}
 The Parzen window estimator is not reliable [1]. It is better to use the methods proposed in [2] or [3] to compare the generative ability quantitatively.}\\
