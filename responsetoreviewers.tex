@@ -34,7 +34,7 @@ We are very grateful to the reviewer for this comment, and the effort spent on i
 
 {\color{blue} The criteria of evaluation and datasets in the experiment part are not satisfactory. The results are not sufficient for a good publication. I suggest the authors proofread and rewrite the paper and provide strong experimental results to support the motivation of the method.}\\
 
-We have {\color{red} moved} the MNIST results to an appendix. We now include experiments on the CelebA face database.  These experiments include image generation (synthesis) which we believe are competitive, and which strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of \hl{attributes} from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE {\color{red} as well as the VAE, beta-VAE and DIP-VAE, achieving competative or superior performace on most attributes}.\\
+We have {\color{red} moved} the MNIST results to an appendix. We now include experiments on the CelebA face database.  These experiments include image generation (synthesis) which we believe are competitive, and which strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of {\color{red} facial attributes} from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE {\color{red} as well as the VAE, beta-VAE and DIP-VAE, achieving competative or superior performace on most attributes}.\\
 
 {\color{red} `which we believe are competative` -- I do not think we can say this about the synthesis -- we can say it about the classification tho!}
 
@@ -109,8 +109,8 @@ The experiments are restricted on simple datasets, which are out of date. In con
 Our choice of datasets was explained in Section VI.B of the original submission.  We acknowledge that in one sense the data might be regarded as simple, but please note that 
 \begin{itemize}
     \item the sprites dataset (of the orignal paper) is a {\em colour} dataset
-    \item the AAE paper \{makhzani2015adversarial\} presented {\color{synthesis}} results on MNIST, SVHN and heavily cropped faces of the Fray dataset, none of which are in colour.
-    \item Kingma's VAE paper presents {\color{syntheis}} results on Fray and MNIST.
+    \item the AAE paper \{makhzani2015adversarial\} presented {\color{red} synthesis} results on MNIST, SVHN and heavily cropped faces of the Fray dataset, none of which are in colour.
+    \item Kingma's VAE paper presents {\color{red}syntheis} results on Fray and MNIST.
     \item the DVAE paper contains no images at all
 \end{itemize}. 
 Notwithstanding this, in the revised paper, we have now included synthesized examples of colour faces. For ease of reference, we show some examples of synthesized images below:\\
@@ -143,7 +143,7 @@ We have however significantly increased the evaluation, by including experiments
 {\color{blue}
 The Parzen window estimator is not reliable [1]. It is better to use the methods proposed in [2] or [3] to compare the generative ability quantitatively.}\\
 
-We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process the last page of references was not accidentally omitted. In the original submission paper, we had the following paragraph:\\
+We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process the last page of references was accidentally omitted. In the original submission paper, we had the following paragraph:\\
 
 \begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable cite\{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
 \end{quote}\\
@@ -174,7 +174,7 @@ These observations were made in the original paper as follows:
 The main advantage of the proposed method over DVAEs is providing the flexibility to choose complicated priors and posteriors. However, I do not observe any practical benefit of using mixture of Gaussian instead of high-dimensional Gaussian priors in terms of reconstruction error, log likelihood or sample quality. So, the motivation of the method is not well supported according to the current experiments.}\\
 
 
-
+{\color{red} LETS DISCUSS THIS STILL}
 Good question!  The reason is that by supporting mixtures of Gaussians, one can encourage latent space to have an organisation that mirrors the semantic aspects that one wishes to represent in the data. To be clear, we do not suggest {\em replacing} high-dimensional Gaussians, but instead suggest using mixtures of high-dimensional Gaussians.   To take a very simple case, if we have an observation space that is clearly bimodal (containing dogs and cats), then it would seem imminently sensible that latent space should have a distribution that reflects this \hl{need an example for which $z_k$ ``label'' separability is a bad idea vs multimodal version}.\\
 
 {\color{red} 
@@ -204,14 +204,19 @@ As for the classification, the results should be compared with other unsupervise
     \item Our motivation was learning in the absence of larger amounts of labelled training data - for this the Omniglot dataset is ideal - since it has only 20 examples per class.
 \end{itemize}
 
+{\color{red} For the CelebA dataset we perform facial attribute classification and compare results to those obtained using a VAE, beta-VAE and DIP-VAE. In each of these experiments an linear classifier was applied to the encoding, our experiments are thus consistent with theirs.}
+
 {\color{blue}
 Though the sampling method proposed do not rely on a given data but it is still an iterative one, which is less efficient than VAEs and GANs. Indeed, throughout this paper, I find no evidence that the proposed method can outperform VAEs and GANs, which are simple, effective and well-known.}\\
 
-In the revised paper, we have significantly different 
+
 \begin{itemize}
     \item In this paper we identify an issue related to drawing samples from these models, which also applies to the DVAE
     \item We propose methods to overcome these issues, and explain why it may be difficult to obtain visually plausible image samples from some denoinsing autoencoders.
+    \item {\color{red} The purpose of the image samples is to demonstate the issue and demonstrate empiracly that our approach addresses the issue.}
 \end{itemize}
+
+{\color{red} \textbf{TIDY UP} In our revised paper, to empasise these points, we include empiracle PDFs of disitributions of encoded data samples, $q_\phi(z|x)$, encoded corrupted data samples $q_\phi(z|\tilde{x})$ and the prior $p(z)$, to shown the miss match between disitributions, $q_\phi(z|x)$ and $p(z)$ when using the DAAE.}
 
 
 Minor things: \newline
@@ -236,10 +241,13 @@ It is better to include some instances in Line 4-9, Column 2, Page2.}\\
 {\color{blue}
 I have no idea why the word “simple” in Line 19, Column 1, Page 3 is bold.}\newline
 
-We were trying to emphasise ...., but we agree that this was unnecessary.  Removed.
+% We were trying to emphasise ...., but we agree that this was unnecessary.  Removed.
+We agree that this was unnecessary.  Removed.
 
 {\color{blue}
 It should be $\tilde q_\phi(z|x)$ instead of $\tilde q_\phi(x|z)$ in the last term of the equation in Line 34-35, Column 1 Page 3. }
+
+We have fixed this.
 
 
 \section{Reviewer: 2}
