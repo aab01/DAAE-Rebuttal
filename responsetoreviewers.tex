@@ -122,7 +122,7 @@ Notwithstanding this, in the revised paper, we have now included synthesized exa
 \end{figure}
 
 
-In addition, we have introduced new experiments in facial expression classification based on colour faces; these were not present in the original paper.  These experiments are to be found in {\color{red} Section VI-F-2}.
+In addition, we have introduced new experiments in facial {\color{red} attribute} classification based on colour faces; these were not present in the original paper.  These experiments are to be found in {\color{red} Section VI-F-2}.
 
 {\color{blue}
 The reconstruction results are not so interesting and some of them can be removed. In addition, the reconstruction results on MNIST and Omniglot are inconsistent, which should be analysed in depth. Current version does not provide insight for the phenomena.}\\
@@ -134,6 +134,8 @@ We now give motivation for reconstruction, we have included the following:
 \begin{quote}
 We are interested in reconstruction for several reasons. The first is that if we wish to use encodings for down stream tasks, for example classification, a good indication of whether the encoding is modeling the sample well is to check the reconstructions. For example if the reconstructed image is missing certain features that were present in the original images, it may be that this information is not preserved in the encoding. The second reason is that checking sample reconstructions is also a method to evaluate whether the model has overfit to test samples. The ability to reconstruct samples not seen during training suggests that a model has not overfit. The final reason, is to further motivate AAE, DAAE and iDAAE models as alternatives to GAN based models that are augmented with encoders \{li2017alice\}, for down stream tasks that require good sample reconstruction.
 \end{quote}
+
+We have however significantly increased the evaluation, by including experiments on facial attribute classification on colour faces.
 
 }
 
