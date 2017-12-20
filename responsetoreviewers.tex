@@ -336,7 +336,7 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 (6) In Section VI.D., you state ``The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.'' Please clarify if ``original sample'' means the uncorrupted withheld test data. The uncorrupted data should be used to evaluate the quality of the reconstruction across all methods in order to provide an accurate comparison, regardless of whether the samples were corrupted going into the model.}\newline
 
 \begin{itemize}
-    \item We agree - all experiments should have been performed on uncorrupted data
+    \item We agree, all experiments should have been performed on uncorrupted data
     \item We have now done this and updated the reconstruction values which are shown in Table IV.
 \end{itemize}
 
@@ -422,7 +422,7 @@ In the submission process the last page was unintentionally left out. The rest o
 {\color{blue}
 3. Section I.A First paragraph. "... there is a ground truth label for every training image." - It has not been specified before that classification of images only is considered.} \newline
 
-This has been replaced by:
+Thankyou for catching this, his has been replaced by:
 \begin{quote}
     because there is a ground truth label for every training data sample.
 \end{quote}
@@ -476,8 +476,7 @@ We choose to use the present:
 
 \begin{itemize}
     \item At the end of section I.C. we are referring to the original VAE paper hence the citation to Kingma et al. - we are pointing out that they do not use denoising.
-    \item At the start of section I.D. we are beginning to introduce the work of Im et al. Cited in paragraph two if Section I.D. who introduce DVAEs.
-    \item TODO?
+    \item At the start of section I.D. we are beginning to introduce the work of Im et al. Cited in paragraph two if Section I.D. who introduce DVAEs, VAE's with denoising.
 \end{itemize}
 
 {\color{blue}
@@ -487,8 +486,8 @@ We choose to use the present:
     \item The use of $v$ and $w$ instead of $x$ and $z$ was done deliberately.
     \item Adversarial training is usually performed on data samples, $x$ rather than on latent samples, $z$. If we introduced adversarial training on the data, but then applied it to the latent this may have cause confusion in notation. If we had introduced directly for the latent, readers familiar with adversarial training may have been confused. 
     \item For these reasons we deliberately introduce adversarial training with a general notation. 
-    \item We wanted to avoid calling samples, $w$ data samples and sample, $v$ latent samples. Instead we refer to samples $w$ as being from a "target distribution".
-    \item In our revised version we refer to $v$ samples as "input samples" coming from our chosen prior distribution $p(v)$ and generated $w$ samples as "output samples". We now say:
+    \item We wanted to avoid calling samples, $w$ data samples and sample, $v$ latent samples. Instead we refer to samples $w$ as being from a ``target distribution''.
+    \item In our revised version we refer to $v$ samples as ``input samples'' coming from our chosen prior distribution $p(v)$ and generated $w$ samples as ``output samples''. We in our revised version we say:
     
     \begin{quote}
         produce output samples, $w$ that match a target probability distribution $t(w)$. \newline ... \newline
@@ -497,7 +496,7 @@ We choose to use the present:
 \end{itemize}
 
 {\color{blue}
-10. Section IV.B. Second paragraph. "... we used PREVIOUSLY in Algorithm 2 of the Appendix..." - this is the first time this algorithm is mentioined and "previously" implies that a reader should have already been aware of it}
+10. Section IV.B. Second paragraph. ``... we used PREVIOUSLY in Algorithm 2 of the Appendix...'' - this is the first time this algorithm is mentioined and ``previously'' implies that a reader should have already been aware of it}
 \begin{itemize}
     \item This was an error. We were referring to the wrong algorithm. To make this more clear, we describe the sampling process that we are referring to in the text. We now say:
     \begin{quote}
@@ -506,7 +505,7 @@ We choose to use the present:
 \end{itemize}
 
 {\color{blue}
-11. Theorem IV.3 formulation. "sufficient approximation" is ambiguous}
+11. Theorem IV.3 formulation. ``sufficient approximation'' is ambiguous}
 \begin{itemize}
     \item We have changed this to:
     \begin{quote}
@@ -515,7 +514,7 @@ We choose to use the present:
 \end{itemize}
 
 {\color{blue}
-12. Section V. "We represent an image in the form of a 3D array" - Does it mean the RGB representation?}
+12. Section V. ``We represent an image in the form of a 3D array'' - Does it mean the RGB representation?}
 \begin{itemize}
     \item It means, $C \times W \times H$, $C$ - colour channel (would be 1 for grey scale), $W$ - width of the image, $H$ - height of the image.
     \item We clarify this, making the following changes:
@@ -527,10 +526,15 @@ We choose to use the present:
 {\color{blue}
 13. Section V.A. Last paragraph. It would be better to add some discussion about fundamental difference between encoder and decoder that lead to this.}
 
-\begin{itemize}
-    \item This is not related to the fundamental difference between encoder and decoder, but because the "reconstruction loss" is minimised, which does not take into account the prior $p(z)$.
-    \item anything else TODO?
-\end{itemize}
+{\color{red}
+We had updated this with the following:
+The vectors output by the encoder may take any real values, therefore minimising reconstruction error is not sufficient to match either $q_\phi(z|\tilde{x})$ or $\tilde{q}_\phi(z|x)$ to the prior, $p(z)$. 
+}\\
+
+% \begin{itemize}
+%     \item This is not related to the fundamental difference between encoder and decoder, but because the ``reconstruction loss'' is minimised, which does not take into account the prior $p(z)$.
+%     \item anything else TODO?
+% \end{itemize}
 
 {\color{blue}
 14. Algorithm 1. For clearer representation it may be better to include both iDAAE and DAAE in the Algorithm with the difference in Line 11}
