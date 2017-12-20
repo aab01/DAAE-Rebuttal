@@ -590,8 +590,13 @@ In reconstruction, we start from a test data sample, encode it to get a latent s
 \end{quote}
 }
 
+{\color{blue}
+20. Tables III and IV. ``200D Gaussian'' is placed such that it was used only for DAAE, moreover in the following tables ``200D Gaussian'' is repeated for each row
+}
 
-20. Tables III and IV. "200D Gaussian" is placed such that it was used only for DAAE, moreover in the following tables "200D Gaussian" is repeated for each row
+{\color{red} NEED TO UPDATE PAPER: For these experiments we use the same prior and so we now put this information in the caption as well as in the model description and remove it from the table.}
+
+
 21. Section VI.D.1. It would be better to have more discussion about why the performance on MNIST of the proposed methods is worse than AAE's.
 22. Section VI.E. It is claimed that "if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data". It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.
 23. Section VI.E. It is better to stick with the same order of the datasets for all the tasks
