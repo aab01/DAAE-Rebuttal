@@ -154,7 +154,7 @@ The corresponding references are:
 We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process the last page of references was accidentally omitted. In the original submission paper, we had the following paragraph:
 
 \begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable cite\{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
-\end{quote}\\
+\end{quote}
 
 For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the advantages of iDAAEs over AAEs.  We hope that the revised version of the paper -- with larger face synthesis and experiments on {\color{red} facial attribute} classification -- further emphasises these points.\\
 
@@ -330,13 +330,22 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 {\color{blue}
 (5) All of your experimental results use image datasets. Can you comment on the applicability \& expected performance of your methods on non-image data?}\newline
 
+{\color{red} We deliberately describe the method in a very general framework. The models $q_\phi(z|x)$ and $p_\theta(x|z)$ may be instatiated using any differentable parameterized model.}
+
 {\color{blue}
-(6) In Section VI.D., you state "The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample." Please clarify if "original sample" means the uncorrupted withheld test data. The uncorrupted data should be used to evaluate the quality of the reconstruction across all methods in order to provide an accurate comparison, regardless of whether the samples were corrupted going into the model.}\newline
+(6) In Section VI.D., you state ``The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.'' Please clarify if ``original sample'' means the uncorrupted withheld test data. The uncorrupted data should be used to evaluate the quality of the reconstruction across all methods in order to provide an accurate comparison, regardless of whether the samples were corrupted going into the model.}\newline
 
 \begin{itemize}
     \item We agree - all experiments should have been performed on uncorrupted data
     \item We have now done this and updated the reconstruction values which are shown in Table IV.
 \end{itemize}
+
+{\color{red} 
+We have also clarified the writing in the revised version:
+\begin{quote}
+The reconstruction task involves passing samples from the test dataset (i.e. a samples not seen during training) through the trained encoder and decoder to recover a sample similar to the original (uncorrupted) sample. The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.
+\end{quote}
+}
 
 {\color{blue}
 (7) There is no comparison in training times between the different methods. A comparison of both performance and training complexity is needed to evaluate the practical merits of this work. Ideally this should be provided for all of the methods you considered as well as a standard autoencoder without regularisation or adversarial training. This is particularly important to consider given how close your proposed methods are in performance to much simpler methods like PCA.}\newline
@@ -388,7 +397,7 @@ Other comments: \newline
 \begin{itemize}
     \item We chose to present the model and theory in a more general framework and then show that neural networks may be used for implementation.
     
-    In the last paragraph of section IV.B. we say:
+    In the last paragraph of section IV.B. in the original paper, we say:
     \begin{quote}
     The analyses of Sections \ref{DAA} and \ref{synthesis} are deliberately general: they do not rely on any specific implementation choice (e.g. particles, artificial neural networks, or parametrised forms of distribution) to capture the model distributions.
     \end{quote}
@@ -397,7 +406,7 @@ At the start of the next section, section V.A. we talk about the implementation 
     Under the autoencoder framework, $E_\phi(x)$ is the encoder and $R_\theta(z)$ is the decoder. We used fully connected neural networks for both the encoder and decoder.
 \end{quote}
 
-\item In figure 1, on page 1 where we present our model, the caption says:
+\item In figure 1, on page 1 where we present our model, the caption in the original paper says:
 \begin{quote}
     Arrows in this diagram represent mappings implemented using trained neural networks.
 \end{quote}
@@ -438,12 +447,21 @@ We deliberately keep the method general. \newline
 5. Section I.A. Last paragraph. It may be worth to add some references here.} \newline
 We have added references as follows:
 \begin{quote}
-    In some situations the encoding distribution is chosen rather than learned cite\{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously cite\{kingma2013auto, makhzani2015adversarial, im2015denoising\}
+    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2015denoising\}
 \end{quote}
 
 {\color{blue}
-6. Please use the same tense citing other works: "Bengio at al. [4] treat...", "Im at al. [8] showed...", "Im et al. [8] do not address...", "Makhzani et al. [13] introduced..."}
-TODO!!
+6. Please use the same tense citing other works: ``Bengio at al. [4] treat...'', ``Im at al. [8] showed...",``Im et al. [8] do not address...'', ``Makhzani et al. [13] introduced...''}\\
+
+{\color{red}
+We choose to use the present:
+\begin{itemize}
+    \item Im at al. [8] showed $\rightarrow$ Im at al. [8] show
+    \item Makhzani et al. [13] introduced $\rightarrow$ Makhzani et al. [13] introduce (the rest of the paragraph was update to be in the present tense.)
+    \item Bengio et al. \{bengio2013generalized\} proposed $\rightarrow$ Bengio et al. \{bengio2013generalized\} propose
+\end{itemize}
+}
+
 
 {\color{blue}
 7. Organisation of the paper. It is not clear why denoising autoencoders are reviewed in "Background" section whereas adversarial autoencoders are reviewed in "Related work" section.}
