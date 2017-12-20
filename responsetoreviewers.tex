@@ -578,8 +578,17 @@ We have added the following:
     \end{quote}
 \end{itemize}
 
-
+{\color{blue}
 19. Section VI.D. The first sentence makes it unclear that for AAE images are not corrupted and the following statements that for AAE uncorrupted images are used are confusing
+}
+
+{\color{red}
+The first secntence is making a distinction between the reconstruction task (for which we no longer corrupt images) and the synthesis task. In the revised version of the paper we perform reconstruction on non-corrupted image, we have changed updates this sentence as follows:
+
+\begin{quote}
+In reconstruction, we start from a test data sample, encode it to get a latent sample and decode to reconstruct the original. 
+\end{quote}
+}
 
 
 20. Tables III and IV. "200D Gaussian" is placed such that it was used only for DAAE, moreover in the following tables "200D Gaussian" is repeated for each row
