@@ -586,7 +586,24 @@ In reconstruction, we start from a test data sample, encode it to get a latent s
 
 22. Section VI.E. It is claimed that ``if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data''. It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.
 
-{\color{red} There are visual examples of this in Figures 2,4,5 of the original paper and numerical results in Tables 5,6,7 and 8. The samples $x^{(0)}$ are examples of these. It is only for Figure 3 that we take $z{(0)}$ from a disitribution that is different to the prior.}
+{\color{red}
+There are visual examples of this in Figures 2,4,5 of the original paper and numerical results in Tables 5,6,7 and 8. The samples $x^{(0)}$ are examples of these. It is only for Figure 3 that we take $z{(0)}$ from a disitribution that is different to the prior.
+
+This was indicated by saying this in the Omniglot figure captions:
+
+\begin{quote}
+The chain was initialized with $z^{(0)} \sim \mathcal{N}(0,I)$.
+\end{quote}
+which was the same as the prior for all experiments except the case where we used a 2D mixture of Gaussian.
+
+We also say in the main body of the text, where we discuss our proposed sampling procedure:
+\begin{quote}
+we draw an initial $z^{(0)}$ from any random distribution – we use a normal distribution for simplicity ... $x^{(0)}$ is the sample generated when $z^{(0)}$ is passed through the decoder.
+\end{quote}
+
+}
+
+
 
 
 
