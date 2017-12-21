@@ -18,13 +18,12 @@ We would like to thank the reviewers for the clear efforts put into reading, und
 \subsection*{Comments to the Author}
 {\color{blue} The paper proposes DAAEs, which use adversarial training to match the posterior distribution to the prior for a denoising autoencoder. The proposed approach is like a combination of existing methods like DAEs, AAEs and DVAEs.}\\
 
-Whilst we do not question the relation of the proposed DAAE and iDAAE to other techniques, we believe that both represent a contribution.  To emphasise the contributions, we have now modified Figure 1 {\color{red} to show our models in another colour, } so that the contributions that we propose are clearer, and are seen relative to relevant work.  These differences of the DAAE and iDAAE to the DAEs, the VAE, DVAE and AAE are sufficient to warrant study, and in the revised paper, we provide a much more extensive set of experiments.\\
+Whilst we do not question that there exists a relation of the proposed DAAE and iDAAE to other techniques, we believe that both represent a contribution. The iDAAE and DAAE are as distinct from each other, and from other flavours of autoencoder, as (for example) the AAE, DAE, VAE and DVAE are from each other.  To ensure that the message of the paper clearer, we have now modified Figure 1, presenting the models we propose in a different colour.  These differences of the DAAE and iDAAE to the DAEs, the VAE, DVAE and AAE are sufficient to warrant study, and in the revised paper we now provide a much more extensive set of experiments (to be discussed later).\\
 
-{\color{red} should we refer to the experiments now? since it does not directly address the comment. And we say it next}
 
 {\color{blue} Some benefits of the proposed method are highlighted when presenting the method but not well supported in the experiments. }\\
 
-We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. {\color{red} We have performed attribute classification experiments and achieve competative or supervior perfromance in several categories, compared to the VAE, beta-VAE and DIP-VAE.}\\
+We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. {\color{red} We have performed attribute classification experiments and achieve competitive or superior performance in synthesis and classification compared to the AAE and VAE. In addition, because the field is moving fast, we also provide performance comparisons to the $\beta$-VAE and DIP-VAE.\\
 
 %\hl{We have introduced tests on robustness to specific image transforms for classification, and we believe these reflect real and non-trivial performance benefits.} \\
 
@@ -34,11 +33,8 @@ We are very grateful to the reviewer for this comment, and the effort spent on i
 
 {\color{blue} The criteria of evaluation and datasets in the experiment part are not satisfactory. The results are not sufficient for a good publication. I suggest the authors proofread and rewrite the paper and provide strong experimental results to support the motivation of the method.}\\
 
-We have {\color{red} moved} the MNIST results to an appendix. We now include experiments on the CelebA face database.  These experiments include image generation (synthesis) which we believe are competitive, and which strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of {\color{red} facial attributes} from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE {\color{red} as well as the VAE, beta-VAE and DIP-VAE, achieving competative or superior performace on most attributes}.\\
+We have moved the MNIST results to an appendix. Extensive experiments have now been conducted on the CelebA face database. These experiments on image generation (synthesis), strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of facial attributes from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE as well as the VAE, beta-VAE and DIP-VAE, achieving competitive or superior performance on most attributes. The classification experiments are also very useful for comparing against previous work, and address another issue (see later) regarding the interpretation of performance results for synthesis.\\
 
-{\color{red} `which we believe are competative` -- I do not think we can say this about the synthesis -- we can say it about the classification tho!}
-
-We have tried to improve the writing generally, and to address the specific issues identified (see, for example, the next section). Extensive proofreading has been performed.
 
 \subsection*{Detailed comments}
 
@@ -52,11 +48,11 @@ These are {\color{red} vincent2010stacked, bengio2013generalized, vincent2008ext
 
 {\color{blue} For 2), both VAEs [6] and GANs [13] use a latent space with a known prior distribution for generation. However, GANs [13] do not regularize the latent space while VAEs [6] do but directly for the training of the recognition model instead of the generative model.}\\
 
-We agree with this. Our initial intention in writing the sentence was to point out that VAEs and GANs both have some constraints on latent space: GANs through the latent space arising from noise sources, and VAEs in the sense of having priors placed on latent space. We realise that this is potentially misleading, so we have removed the phrase ``latent space with a {\color{red} known} prior distribution''. \\
+We agree with this. Our initial intention in writing the sentence was to point out that VAEs and GANs both have some constraints on latent space: GANs through the latent space arising from noise sources, and VAEs in the sense of having priors placed on latent space. We realise that this is potentially misleading, so we have removed the phrase ``latent space with a known prior distribution''. \\
 
 {\color{blue} The author should be careful about the correctness of ``regularisation ... [1], [9], [13] or using … [6], [9], [13]'' and clarify the writing.} \\
 
-We agree that the sentence was confusing, particulary with regard to the use of the term ``regularisation'' and the choice of references. We have now altered the sentence to read:
+We agree that the sentence was confusing, particularly with regard to the use of the term ``regularisation'' and the choice of references. We have now altered the sentence to read:
 
 ``regularisation of the latent space to match a prior {\color{red} \{ kingma2013auto, makhzani2015adversarial \}}''
 
@@ -72,7 +68,7 @@ We agree that not all autoencoders are probabilistic, but they are often referre
        In this paper we will therefore also refer to the recognition model $q_\phi(z|x)$ as a probabilistic encoder, since given a datapoint x it produces a distribution (e.g. a Gaussian) over the possible values of the code z from which the datapoint x could have been generated. In a similar vein we will refer to $p_\theta(x|z)$ as a probabilistic decoder, since given a code z it produces a distribution over the possible corresponding values of x.
     \end{quote}
 
-We have purposefully used notation consistent with Kingma et al. [9]. Of course, in a sense, probabilistic autoencoders generalise (and include, as a clear subset) non-probabilistic ones, and our intention was to be {\em general}. \\
+We have purposefully used notation consistent with Kingma et al. [9]. Of course, in a sense, probabilistic autoencoders generalise (and include, as a clear subset) non-probabilistic ones, and our intention was to be {\em general} in this paper because it allows us to unify the treatment, and therefore compare different approaches to creating autoencoders. \\
 
  {\color{blue}I also note that subsection C introduces VAEs again, which may be redundant. On the other hand, both the encoders and decoders in VAEs are trained jointly instead of ``first learning … form a training set … trained in a supervised fashion.'' I seriously suggest the authors to present the literature carefully and precisely.}\\
 
@@ -84,11 +80,11 @@ Our reason for explicitly pointing this out is to generalise to the case where t
     \begin{quote}
         Bengio  et  al.  [4]  treat  the  encoding  process  as  a  local corruption  process,  that  does  not  need  to  be  learned.
     \end{quote}
-In [4], there is no latent space in the same sense as that for VAEs or GANs. To improve the clarity and visibility of this idea, we have added references {\color{red} has been checked}:
+In [4], there is no latent space in the same sense as that for VAEs or GANs. To improve the clarity and visibility of this idea, we have added references:
 \begin{quote}
     In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2015denoising\}
 \end{quote}
-Why did we do this?  It allowed us to treat encoding in the most general way, so that we can bring the approach suggested in [4] under the same umbrella as other models. Doing this also allows us to acknowledge Bengio's DAE, but also to distinguish between the ``corruption'' of that model and the noise process of our proposed DAAE more clearly. For example, the approach of [4] does not explicitly define a latent space.  It is also worth pointing out that taking Bengio's corruption process [4] to the extreme is equivalent to having a latent representation which is Gaussian noise \{bachman2015variational\}; so this way of thinking seems to be self-consistent.
+Why did we do this?  It allowed us to treat encoding in the most general way, so that we can bring the approach suggested in [4] under the same umbrella as other models. Doing this also allows us to acknowledge Bengio's DAE, but also to distinguish between the ``corruption'' of that model and the noise process of our proposed DAAE more clearly. For example, the approach of [4] does not explicitly define a latent space.  It is also worth pointing out that taking Bengio's corruption process [4] to the extreme is equivalent to having a latent representation which is Gaussian noise \{bachman2015variational\}; so this way of thinking seems to be self-consistent.\\
 
 
 {\color{blue}
@@ -98,7 +94,7 @@ The cost function $E_{x\sim p(x)} E_{z\sim q_\phi(z|x)} \log p(x | z)$ is {\em n
 
 {\color{blue} However, as x is sampled, there should not be a term of $p(x_i)$ in the equation (it should be 1/N, which already exists.). Another typo is “$log p(x_i | z_i)$” instead of “$log p(x | z_i)$”. Did I miss something? It should be clarified.}\\
 
-Thanks for spotting this!  There was indeed an extra $i$ subscript in the Equation. However, to ensure clarity we have also rewritten the equation and ammended the text immediately below it to avoid potential ambiguity:
+Thanks for spotting this!  There was indeed an extra $i$ subscript in the Equation. However, to ensure clarity we have also rewritten the equation and amended the text immediately below it to avoid potential ambiguity:
 \[ \mathcal{L}_{rec} = \frac{1}{N}\sum_{i=0}^{N-1} \log p_\theta(x|z_i)\]
 where the $z_i$ are obtained via the following sampling process $x_{i=0...N-1} \sim p(x)$, $\tilde{x}_i \sim c(\tilde{x}|x_i)$, $z_i \sim q_\phi(z|\tilde{x}_i)$, and $p(x)$ is distribution of the training data.
 
@@ -122,21 +118,20 @@ Notwithstanding this, in the revised paper, we have now included synthesized exa
 \end{figure}
 
 
-In addition, we have introduced new experiments in facial {\color{red} attribute} classification based on colour faces; these were not present in the original paper.  These experiments are to be found in {\color{red} Section VI-F-2}.
+In addition, we have introduced new experiments in facial attribute classification based on colour faces; these experiments were not present in the original paper, and represent a significant addition.  These experiments are to be found in {\color{red} Section VI-F-2}.
 
 {\color{blue}
 The reconstruction results are not so interesting and some of them can be removed. In addition, the reconstruction results on MNIST and Omniglot are inconsistent, which should be analysed in depth. Current version does not provide insight for the phenomena.}\\
 
 % We are not sure we understand \hl{the point}.  We have however significantly increased the evaluation, both by demonstrating high-quality synthesis results (see, for exampe XX and YY), and by including evaluation of robustness (shift tolerance and classification performance from latent space).\\
-{\color{red} 
-We now give motivation for reconstruction, we have included the following:
+
+We now give motivation for reconstruction, we have included the following paragraph to justify these experiments:
 
 \begin{quote}
 We are interested in reconstruction for several reasons. The first is that if we wish to use encodings for down stream tasks, for example classification, a good indication of whether the encoding is modeling the sample well is to check the reconstructions. For example if the reconstructed image is missing certain features that were present in the original images, it may be that this information is not preserved in the encoding. The second reason is that checking sample reconstructions is also a method to evaluate whether the model has overfit to test samples. The ability to reconstruct samples not seen during training suggests that a model has not overfit. The final reason, is to further motivate AAE, DAAE and iDAAE models as alternatives to GAN based models that are augmented with encoders \{li2017alice\}, for down stream tasks that require good sample reconstruction.
 \end{quote}
 
-We have however significantly increased the evaluation, by including experiments on facial attribute classification on colour faces.
-}
+We have, however, provided significant improvements in the evaluation of the two proposed models by including experiments on facial attribute classification on colour faces.
 
 
 
@@ -151,18 +146,18 @@ The corresponding references are:
 }
 \\
 
-We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process the last page of references was accidentally omitted. In the original submission paper, we had the following paragraph:
+We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process, the last page of references was accidentally omitted. In the original submission paper, we had the following paragraph:
 
 \begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable cite\{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
 \end{quote}
 
-For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the advantages of iDAAEs over AAEs.  We hope that the revised version of the paper -- with larger face synthesis and experiments on {\color{red} facial attribute} classification -- further emphasises these points.\\
+For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the advantages of iDAAEs over AAEs. We have also introduced new ways of communicating the results of image synthesis which are easier to interpret, and we home makes the contributions clearer, even given the limitations of log-likelihood as a means of evaluation. We hope that the revised version of the paper -- with improved face synthesis and experiments on facial attribute classification -- further emphasises the improvements afforded by the proposed DAAE and iDAAE.\\
 
-We would also like to point, once again, to the demonstration of the Omniglot dataset, which contains examples of alphabets that are completely absent from the training data. We have since {\color{red} moved} the classification results into one table, so that it is clear that {\color{red} they} are separate datasets in Omniglot. Notably (and this is something that enforces the reviewers point):
+We would also like to emphasise once again, the usefulness of the Omniglot dataset, which contains a testing dataset with examples of {\em entire alphabets} that are completely absent from the training data. We have since created a new visualisation of these results, to emphasise that they correspond to separate datasets in Omniglot. Notably (and this is something that enforces the reviewers point):
 
 \begin{itemize}
-    \item if we evaluate log-likelihood on samples from alphabets that are different to those in the training data, the log likelihood gets worse with an extended number of iterations
-    \item if we evaluate log-likelihood on samples from alphabets similar to those in the training data the likelihood get better with an extended number iterations.
+    \item if we evaluate log-likelihood on samples from alphabets that are different to those in the training data, the log-likelihood values get {\em worse} with an extended number of iterations
+    \item if we evaluate log-likelihood on samples from alphabets similar to those in the training data, the likelihoods get {\em better} with an extended number iterations.
 \end{itemize}
 
 {\color{red} 
@@ -180,14 +175,14 @@ The main advantage of the proposed method over DVAEs is providing the flexibilit
 {\color{red} LETS DISCUSS THIS STILL}
 Good question!  The reason is that by supporting mixtures of Gaussians, one can encourage latent space to have an organisation that mirrors the semantic aspects that one wishes to represent in the data. To be clear, we do not suggest {\em replacing} high-dimensional Gaussians, but instead suggest using mixtures of high-dimensional Gaussians.   To take a very simple case, if we have an observation space that is clearly bimodal (containing dogs and cats), then it would seem imminently sensible that latent space should have a distribution that reflects this \hl{need an example for which $z_k$ ``label'' separability is a bad idea vs multimodal version}.\\
 
-{\color{red} 
-Further, note that the distribution of encoded samples in the DAAE is a mixture of Gaussian, in the original paper we state this:
+ 
+Further, note that the distribution of encoded samples in the DAAE is a mixture of Gaussian. In the original paper we stated this:
 
 \begin{quote}
 If $q_\phi(z|\tilde{x})$ is chosen to be Gaussian, then in many cases $\tilde{q}_\phi(z|x) = \int q_\phi(z|\tilde{x})c(\tilde{x}|x)d \tilde{x}$ will be a mixture of Gaussians.
 \end{quote}
-this is also expressed by Im et al. \{im2015denoising\}.
-}
+an explanation that was also expressed by Im et al. \{im2015denoising\}.
+
 
 % \begin{itemize}
 %     \item \{TODO...\}
@@ -207,7 +202,7 @@ As for the classification, the results should be compared with other unsupervise
     \item Our motivation was learning in the absence of larger amounts of labelled training data - for this the Omniglot dataset is ideal - since it has only 20 examples per class.
 \end{itemize}
 
-{\color{red} For the CelebA dataset we perform facial attribute classification and compare results to those obtained using a VAE, beta-VAE and DIP-VAE. In each of these experiments an linear classifier was applied to the encoding, our experiments are thus consistent with theirs.}
+For the CelebA dataset, we perform facial attribute classification and compare the results to those obtained using a VAE, beta-VAE and DIP-VAE. In each of these experiments an linear classifier was applied to the encoding, our experiments are thus consistent with theirs.
 
 {\color{blue}
 Though the sampling method proposed do not rely on a given data but it is still an iterative one, which is less efficient than VAEs and GANs. Indeed, throughout this paper, I find no evidence that the proposed method can outperform VAEs and GANs, which are simple, effective and well-known.}\\
@@ -216,10 +211,10 @@ Though the sampling method proposed do not rely on a given data but it is still 
 \begin{itemize}
     \item In this paper we identify an issue related to drawing samples from these models, which also applies to the DVAE
     \item We propose methods to overcome these issues, and explain why it may be difficult to obtain visually plausible image samples from some denoinsing autoencoders.
-    \item {\color{red} The purpose of the image samples is to demonstate the issue and demonstrate empiracly that our approach addresses the issue.}
+    \item {\color{red} The purpose of the image samples is to demonstrate the issue and demonstrate empiracly that our approach addresses the issue.}
 \end{itemize}
 
-{\color{red} \textbf{TIDY UP} In our revised paper, to empasise these points, we include empiracle PDFs of disitributions of encoded data samples, $q_\phi(z|x)$, encoded corrupted data samples $q_\phi(z|\tilde{x})$ and the prior $p(z)$, to shown the miss match between disitributions, $q_\phi(z|x)$ and $p(z)$ when using the DAAE.}
+{\color{red} \textbf{TIDY UP} In our revised paper, to empasise these points, we include empirical PDFs of distributions of encoded data samples, $q_\phi(z|x)$, encoded corrupted data samples $q_\phi(z|\tilde{x})$ and the prior $p(z)$, to shown the miss match between distributions, $q_\phi(z|x)$ and $p(z)$ when using the DAAE.}
 
 
 Minor things: \newline
@@ -308,13 +303,12 @@ For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iD
 \end{itemize}
 
 {\color{red}
-For the additional CelebA experiments, since an AAE had not been trained on the CelebA dataset using our proposed architecture a more extensive hyper paramerter search was performed, this is detailed in the revised paper as follows:
+For the additional CelebA experiments, since an AAE had not been trained on the CelebA dataset using our proposed architecture, a more extensive hyper parameter search was performed. This is detailed in the revised paper as follows:
 
 \begin{quote}
 Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop with learning rate $1 \time 10^{-4}$ and momentum of $0.1$ for training the discriminator. We found that using smaller momentum values lead to more blurred images, however larger momentum values prevented the network from converging and made training unstable. When using Adam instead of RMSprop (on the CelebA dataset specifically) we found that the values in the encodings became very large, and not consistent with the prior. The encoding is made up of $200$ units and the prior $200$D Gaussian. The corruption process used to train the DAAE and iDAAE was additive Gaussian noise. We experimented with different noise level, $\sigma$ between $[0.1, 1.0]$, we found several values in this range to be suitable. For our classification experiments we fixed $\sigma=0.25$ and for synthesis from the DAAE, to demonstrate the effect of sampling, we used $\sigma=1.0$. For the iDAAE we experimented with $M=2, 5, 20, 50$. We found that $M < 5$ (when $\sigma=1.0$), was not sufficient to train an iDAAE. By comparing histograms of encoded data samples to histograms of the prior, for an iDAAE trained with a particular $M$ value, we are able to see whether $M$ is sufficiently larger or not. We found $M=5$ to be sufficiently large.
 \end{quote}
 
- }
 
 {\color{blue}
 (4) You use a standard AAE as a benchmark for evaluating DAAE and iDAAE. It would be helpful to also include a regular autoencoder in your results for reference.}\newline
@@ -324,13 +318,12 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
     % \item We could have used an autoencoder for classification
     % \item We chose to compare to state of art.
 \end{itemize}
-
-{\color{red} In our revised paper, we perform facial attribute classification on the CelebA dataset and compare to well known models including the VAE and $\beta$-VAE.}
+In our revised paper, we perform facial attribute classification on the CelebA dataset and compare to well known models including the VAE and $\beta$-VAE.
 
 {\color{blue}
 (5) All of your experimental results use image datasets. Can you comment on the applicability \& expected performance of your methods on non-image data?}\newline
 
-{\color{red} We deliberately describe the method in a very general framework. The models $q_\phi(z|x)$ and $p_\theta(x|z)$ may be instatiated using any differentable parameterized model.}
+We deliberately describe the method in a very general framework. The models $q_\phi(z|x)$ and $p_\theta(x|z)$ may be instantiated using any differentiable parameterized model.}
 
 {\color{blue}
 (6) In Section VI.D., you state ``The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.'' Please clarify if ``original sample'' means the uncorrupted withheld test data. The uncorrupted data should be used to evaluate the quality of the reconstruction across all methods in order to provide an accurate comparison, regardless of whether the samples were corrupted going into the model.}\newline
@@ -339,13 +332,12 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
     \item We agree, all experiments should have been performed on uncorrupted data
     \item We have now done this and updated the reconstruction values which are shown in Table IV.
 \end{itemize}
-
-{\color{red} 
+ 
 We have also clarified the writing in the revised version:
 \begin{quote}
 The reconstruction task involves passing samples from the test dataset (i.e. a samples not seen during training) through the trained encoder and decoder to recover a sample similar to the original (uncorrupted) sample. The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.
 \end{quote}
-}
+
 
 {\color{blue}
 (7) There is no comparison in training times between the different methods. A comparison of both performance and training complexity is needed to evaluate the practical merits of this work. Ideally this should be provided for all of the methods you considered as well as a standard autoencoder without regularisation or adversarial training. This is particularly important to consider given how close your proposed methods are in performance to much simpler methods like PCA.}\newline
@@ -355,7 +347,7 @@ The reconstruction task involves passing samples from the test dataset (i.e. a s
     \item {\color{red} TO TIDY: Training time will vary based on resource available, choice of framework and machine. The additional computation cost from corruption is minimal, and the computational cost assocated with the adversarial loss is dependant on the size of the discriminator. Comparison of training time is likely to be less meaninful. Instead, we had added additional results to demonstate the benefits of using DAAE or iDAAE compared to other state of art models.}
 \end{itemize}
 
-{\color{red} TO TIDY: In our revised version we include facial attribute classification experients which compare our model to state of the art models rather than PCA, which we hope motivates the models futher.}
+In our revised version, we include facial attribute classification experiments which compare our model to state-of-the-art models rather than PCA, which we hope motivates the models further. Experiments are now comparable with very recent work in this field {\color{red} Citations needed here.}
 
 \section{Reviewer: 3}
 
@@ -372,7 +364,7 @@ The main concerns regarding the paper are about the experimental section. Althou
     \item For this reason we did not make experiments comparing DVAE with DAAE a priority, rather we focused on comparing DAAE and AAE
 \end{itemize}
 
-{\color{red} In our revised version we have performed additional experiments with the CelebA dataset of colour faces, perfroming facial attribute classification. We compare results to those obtained for well known models including VAE and $\beta$-VAE.}
+In our revised version we have performed additional experiments with the CelebA dataset of colour faces, performing facial attribute classification. We now compare results to those obtained for well known models including VAE and $\beta$-VAE. This is in alignment with methods of evaluation in the field.
 
 {\color{blue}
 The second concern regarding the experimental setup is about choice of the prior used in the experiments. Except DAAE with 2D 10-GMM prior that shows poor results and is outperformed by all the competitors the experiments are conducted with Gaussian prior that could have been trained with DVAE and VAE. The main motivation of the proposed methods in compariosn to DVAE claimed by the authors was the possibility of using different more complex priors. It would be good to see this in the experiments.}\newline 
