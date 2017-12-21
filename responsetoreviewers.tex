@@ -207,14 +207,14 @@ Though the sampling method proposed do not rely on a given data but it is still 
 
 
 \begin{itemize}
-    \item 
+    \item In the original paper, we identified an issue related to drawing samples from these models, which also applies to the DVAE.
     \item We propose methods to overcome these issues, and explain why it may be difficult to obtain visually plausible image samples from some denoinsing autoencoders.
     \item {\color{red} The purpose of the image samples is to demonstrate the issue and demonstrate empirically that our approach addresses the issue.}
 \end{itemize}
 
-In the original paper, we identified  an issue related to drawing samples from these models, which also applies to the DVAE.
+% 
 
-In our revised paper, to emphasise these points, we have now included a new Figure pair that shows estimates of the empirical PDFs of distributions of encoded data samples, $q_\phi(z|x)$, encoded {\em corrupted} data samples $q_\phi(z|\tilde{x})$, and the prior $p(z)$ placed upon latent space.  This figure pair -- drawn from the trained models of the CelebA database -- show an obvious mismatch between distributions, $q_\phi(z|x)$ and $p(z)$ when using the DAAE. \hl{Toni: logical flaw here: the difference should not be between two things you propose to address the criticism of the reviewer, but between (say) a DVAE and the iDAAE.  I do not agree with showing the emp. PDFs from the DAAE and the iDAAE -- this shows the difference between them. But this is not what the reviewer has criticised.  Is it possible to get emp. PDF from something *like* the DVAE or AAE?} 
+% In our revised paper, to emphasise these points, we have now included a new Figure pair that shows estimates of the empirical PDFs of distributions of encoded data samples, $q_\phi(z|x)$, encoded {\em corrupted} data samples $q_\phi(z|\tilde{x})$, and the prior $p(z)$ placed upon latent space.  This figure pair -- drawn from the trained models of the CelebA database -- show an obvious mismatch between distributions, $q_\phi(z|x)$ and $p(z)$ when using the DAAE. \hl{Toni: logical flaw here: the difference should not be between two things you propose to address the criticism of the reviewer, but between (say) a DVAE and the iDAAE.  I do not agree with showing the emp. PDFs from the DAAE and the iDAAE -- this shows the difference between them. But this is not what the reviewer has criticised.  Is it possible to get emp. PDF from something *like* the DVAE or AAE?} 
 
 
 Minor things: \newline
