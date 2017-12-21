@@ -446,7 +446,7 @@ We have updated the writing to be more consistent in the use of tenses:
 
 
 {\color{blue}
-7. Organisation of the paper. It is not clear why denoising autoencoders are reviewed in "Background" section whereas adversarial autoencoders are reviewed in "Related work" section.}\\
+7. Organisation of the paper. It is not clear why denoising autoencoders are reviewed in ``Background'' section whereas adversarial autoencoders are reviewed in ``Related work'' section.}\\
 
 \begin{itemize}
     \item In the ``Background'' we talk about Autoencoders in a more general framework, this allows us to introduce many concpets in this framework.
@@ -581,7 +581,15 @@ In reconstruction, we start from a test data sample, encode it to get a latent s
 
 
 21. Section VI.D.1. It would be better to have more discussion about why the performance on MNIST of the proposed methods is worse than AAE's.
-22. Section VI.E. It is claimed that "if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data". It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.
+
+{\color{red} We have now removed the MNIST results from the main body of the paper. The dataset was perhaps too tivial to see the benefits of denoinsing.}
+
+22. Section VI.E. It is claimed that ``if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data''. It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.
+
+{\color{red} There are visual examples of this in Figures 2,4,5 of the original paper and numerical results in Tables 5,6,7 and 8. The samples $x^{(0)}$ are examples of these. It is only for Figure 3 that we take $z{(0)}$ from a disitribution that is different to the prior.}
+
+
+
 23. Section VI.E. It is better to stick with the same order of the datasets for all the tasks
 24. Section VI.E.3. Phrases "less negative log-likelihood" and "more negative" are very confusing, as it seems like log-likelihood is still used whereas "negative log-likelihood" is another popular measure. It is better to just say "larger" and "smaller"
 25. Section VI.F.1. Second paragraph, first sentence implies that there will be "second" with discussion DAAE with 2D 10-GMM
