@@ -601,13 +601,15 @@ We also say in the main body of the text, where we discuss our proposed sampling
 we draw an initial $z^{(0)}$ from any random distribution – we use a normal distribution for simplicity ... $x^{(0)}$ is the sample generated when $z^{(0)}$ is passed through the decoder.
 \end{quote}
 
+In our revised version we also include celebA faces where $z^{(0)}$ is sampled from the prior, and there is a vivid difference between inital and final samples.
 }
 
 
 
-
-
 23. Section VI.E. It is better to stick with the same order of the datasets for all the tasks
+
+{\color{red} We have updated the order to be Omniglot, Sprites, CelebA for all experiment sections.}
+
 24. Section VI.E.3. Phrases "less negative log-likelihood" and "more negative" are very confusing, as it seems like log-likelihood is still used whereas "negative log-likelihood" is another popular measure. It is better to just say "larger" and "smaller"
 25. Section VI.F.1. Second paragraph, first sentence implies that there will be "second" with discussion DAAE with 2D 10-GMM
 26. Section VI.G. It would be good to provide time estimates here to understand how much longer iDAAE takes to train
