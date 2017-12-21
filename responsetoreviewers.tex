@@ -615,12 +615,19 @@ In our revised version we also include celebA faces where $z^{(0)}$ is sampled f
 24. Section VI.E.3. Phrases ``less negative log-likelihood'' and ``more negative'' are very confusing, as it seems like log-likelihood is still used whereas ``negative log-likelihood'' is another popular measure. It is better to just say ``larger'' and ``smaller''
 }
 
-\hl{I dont know if I agree with this?}
+\hl{Anil - I dont know if I agree with this?}
 
 
+{\color{blue}
+25. Section VI.F.1. Second paragraph, first sentence implies that there will be ``second'' with discussion DAAE with 2D 10-GMM
+}
 
-25. Section VI.F.1. Second paragraph, first sentence implies that there will be "second" with discussion DAAE with 2D 10-GMM
+{\color{red} We have now removed experiments on the MNIST dataset and replaced them with experiments on te CelebA dataset. So this is no longer in the main body of the text.}
+
 26. Section VI.G. It would be good to provide time estimates here to understand how much longer iDAAE takes to train
+
+{\color{red} This will depend heavily on the type of framework and GPU that you use. Any values we provide will either be trivial, for example, if the iDAAE has $M$ interration we have to compute $M$ times the number of encodings, which may take $M$ times as long, however if you have a very large GPU you may be able to compute $M$ encodings in one go. I did not have access to large GPUs (Ge Force 680 for experiments in the original paper) and so could not do this.}
+
 27. Section VII. First two paragraphs can be safely skipped.
 28. References. It is better to cite published version of the works rather than their preprints from arxiv, like in [8] - Proceeding of the 31 AAAI Conference on Artificial Intelligence, or in [9] arXiv reference is redundant
 29. Appendix A. It is odd to use different names for the same lemmas as in the main body of the paper.
