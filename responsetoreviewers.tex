@@ -106,8 +106,8 @@ Our choice of datasets was explained in Section VI.B of the original submission.
 \begin{itemize}
     \item the sprites dataset (of the orignal paper) is a {\em colour} dataset
     \item the AAE paper \{makhzani2015adversarial\} presented results on MNIST, SVHN and heavily cropped faces from the Fray dataset which is in \textbf{not} in colour.
-    \item Kingma's VAE paper presents {\color{red}syntheis} results on Fray and MNIST.
-    \item the DVAE paper contains no images at all
+    \item Kingma's VAE paper presents results on Fray and MNIST, again \textbf{not} in colour.
+    \item the DVAE paper contains examples of synthesised images.
 \end{itemize}. 
 Notwithstanding this, in the revised paper we have now included synthesized examples of colour faces. For ease of reference, we show some examples of synthesized images below:\\
 
@@ -147,10 +147,10 @@ The corresponding references are:
 
 We were aware of the literature [1] and did cite Theis, in the last paragraph VII.E.- unfortunately in the uploading process, the last page of references was accidentally omitted. In the original submission paper, we had the following paragraph:
 
-\begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable cite\{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
+\begin{quote} Finally, evaluating generated samples is challenging: log-likelihood is not always reliable \{theis2015note\}, and qualitative analysis is subjective. For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling when a trained DAAE, and the advantages of iDAAEs over AAEs. 
 \end{quote}
 
-For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the differences and advantages of iDAAEs compared to AAEs. We have also introduced new ways of communicating the results of image synthesis which are easier to interpret, and we home makes the contributions clearer, even given the limitations of log-likelihood as a means of evaluation. We hope that the revised version of the paper -- with improved face synthesis and experiments on facial attribute classification -- further emphasises the improvements afforded by the proposed DAAE and iDAAE.\\
+For this reason, we provided both quantitative and qualitative results to communicate the benefits of introducing Markov chain sampling with a DAAE, and the differences and advantages of iDAAEs compared to AAEs. We have also introduced new ways of communicating the results of image synthesis which are easier to interpret, which we hope makes the contributions clearer, even given the limitations of log-likelihood as a means of evaluation. We hope that the revised version of the paper -- with improved face synthesis and experiments on facial attribute classification -- further emphasises the improvements afforded by the proposed DAAE and iDAAE.\\
 
 We would also like to emphasise the usefulness of the Omniglot dataset, which contains a testing dataset with examples of {\em entire alphabets} that are completely absent from the training data. We have since created a new visualisation of these results, to emphasise that they correspond to separate datasets in Omniglot. Notably (and this is something that enforces the reviewers point):
 
