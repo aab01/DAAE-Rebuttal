@@ -166,12 +166,11 @@ These observations were made in the original paper as follows:
  \end{quote}
 }
 
-
 {\color{blue}
 The main advantage of the proposed method over DVAEs is providing the flexibility to choose complicated priors and posteriors. However, I do not observe any practical benefit of using mixture of Gaussian instead of high-dimensional Gaussian priors in terms of reconstruction error, log likelihood or sample quality. So, the motivation of the method is not well supported according to the current experiments.}\\
 
 
-{\color{red} LETS DISCUSS THIS STILL}
+% {\color{red} LETS DISCUSS THIS STILL}
 To be clear, we do not suggest {\em replacing} high-dimensional Gaussians, but instead suggest using mixtures of high-dimensional Gaussians.  The reason is that by supporting mixtures of Gaussians, one can encourage latent space to have an organisation that mirrors the semantic aspects that one wishes to represent in the data.  To take a very simple case, if we have an observation space that is clearly bimodal (containing dogs and cats), then it would seem imminently sensible that latent space should have a distribution that reflects this \hl{need an example for which $z_k$ ``label'' separability is a bad idea vs multimodal version}.\\
 
 Further, note that the distribution of encoded samples in the DAAE is a mixture of Gaussian. In the original paper we stated this:
@@ -179,7 +178,7 @@ Further, note that the distribution of encoded samples in the DAAE is a mixture 
 \begin{quote}
 If $q_\phi(z|\tilde{x})$ is chosen to be Gaussian, then in many cases $\tilde{q}_\phi(z|x) = \int q_\phi(z|\tilde{x})c(\tilde{x}|x)d \tilde{x}$ will be a mixture of Gaussians.
 \end{quote}
-an explanation that was also expressed by Im et al. \{im2015denoising\}.
+an explanation that was also expressed by Im et al. \{im2015denoising\}.\\
 
 
 % \begin{itemize}
@@ -198,9 +197,10 @@ As for the classification, the results should be compared with other unsupervise
     \item \{4\} Do NN1 classification for MNIST and semi-supervised learning for ImageNet
     \item We chose not to do semi-supervised learning because we wanted to evaluated the latent representation learned - which is best ahcieved using NN or training an SVM on top of the representation
     \item Our motivation was learning in the absence of larger amounts of labelled training data - for this the Omniglot dataset is ideal - since it has only 20 examples per class.
+    \item This approach is used elsewhere in the literature to measure the linear seperability of learned encodings \{kumar2017variational\}.
 \end{itemize}
 
-For the CelebA dataset, we perform facial attribute classification and compare the results to those obtained using a VAE, beta-VAE and DIP-VAE. In each of these experiments an linear classifier was applied to the encoding, our experiments are thus consistent with theirs.
+In our revised version of the paper, we present results on the CelebA dataset. We perform facial attribute classification and compare the results to those obtained using a VAE and beta-VAE \{kumar2017variational\}. In each of these experiments presented by Kumar et al. \{kumar2017variational\} a linear classifier was applied to the encoding, our experiments are thus consistent with theirs.
 
 {\color{blue}
 Though the sampling method proposed do not rely on a given data but it is still an iterative one, which is less efficient than VAEs and GANs. Indeed, throughout this paper, I find no evidence that the proposed method can outperform VAEs and GANs, which are simple, effective and well-known.}\\
@@ -551,7 +551,8 @@ We have added the following:
 {\color{blue}
 18. Section VI.C. Which optimisation algorithm is used for training?}
 \begin{itemize}
-    \item To ensure that our experiments are repeatable we have provided code: \url{https://github.com/ToniCreswell/DAAE_/blob/master/DAAE_sprite_v2.ipynb}
+    \item To ensure that our experiments are repeatable we provided code in the Theano framework: \url{https://github.com/ToniCreswell/DAAE_/blob/master/DAAE_sprite_v2.ipynb}
+    \item Since the submission of this paper, it was announced that the Theano framework would no longer be supported, for this reason, code used to run the additional experiments has been written in pyTorch as is available here: \url{https://github.com/ToniCreswell/pyTorch_DAAE}.
     \item We use adam
     \item We have added the following:
     \begin{quote}
