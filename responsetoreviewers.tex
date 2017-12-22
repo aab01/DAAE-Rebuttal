@@ -546,9 +546,7 @@ We have added the following:
 {\color{blue}
 17. Section VI.C. It is unclear why 10-GMM prior is chosen only for DAAE and not for iDAAE} \newline
 
-\begin{itemize}
-    \item ...TODO? 
-\end{itemize}
+{\color{red} We have removed the MNIST results from the main body of the text.}
 
 {\color{blue}
 18. Section VI.C. Which optimisation algorithm is used for training?}
@@ -562,7 +560,7 @@ We have added the following:
 \end{itemize}
 
 {\color{blue}
-19. Section VI.D. The first sentence makes it unclear that for AAE images are not corrupted and the following statements that for AAE uncorrupted images are used are confusing
+19. Section VI.D. The first sentence makes it unclear that for AAE images are not corrupted and the following statements that for AAE uncorrupted images are used are confusing\\
 }
 
 {\color{red}
@@ -574,17 +572,20 @@ In reconstruction, we start from a test data sample, encode it to get a latent s
 }
 
 {\color{blue}
-20. Tables III and IV. ``200D Gaussian'' is placed such that it was used only for DAAE, moreover in the following tables ``200D Gaussian'' is repeated for each row
+20. Tables III and IV. ``200D Gaussian'' is placed such that it was used only for DAAE, moreover in the following tables ``200D Gaussian'' is repeated for each row\\
 }
 
-{\color{red} NEED TO UPDATE PAPER: For these experiments we use the same prior and so in the revised version of our paper we put this information in the caption as well as in the model description and remove it from the table.}
+{\color{red} NEED TO UPDATE PAPER: For these experiments we use the same prior and so in the revised version of our paper we put this information in the caption as well as in the model description and remove it from the table.\\}
 
+{\color{blue}
+21. Section VI.D.1. It would be better to have more discussion about why the performance on MNIST of the proposed methods is worse than AAE's.\\
+}
 
-21. Section VI.D.1. It would be better to have more discussion about why the performance on MNIST of the proposed methods is worse than AAE's.
+{\color{red} We have now removed the MNIST results from the main body of the paper. The dataset was perhaps too tivial to see the benefits of denoinsing.\\}
 
-{\color{red} We have now removed the MNIST results from the main body of the paper. The dataset was perhaps too tivial to see the benefits of denoinsing.}
-
-22. Section VI.E. It is claimed that ``if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data''. It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.
+{\color{blue}
+22. Section VI.E. It is claimed that ``if we pass samples from the prior through the decoder of a trained DAAE, the samples are likely to be inconsistent with the training data''. It would be interesting to see this in practise. There are results with $z^{(0)}$, but they are taken from some other distribution rather than from the prior.\\
+}
 
 {\color{red}
 There are visual examples of this in Figures 2,4,5 of the original paper and numerical results in Tables 5,6,7 and 8. The samples $x^{(0)}$ are examples of these. It is only for Figure 3 that we take $z{(0)}$ from a disitribution that is different to the prior.
@@ -601,50 +602,64 @@ We also say in the main body of the text, where we discuss our proposed sampling
 we draw an initial $z^{(0)}$ from any random distribution – we use a normal distribution for simplicity ... $x^{(0)}$ is the sample generated when $z^{(0)}$ is passed through the decoder.
 \end{quote}
 
-In our revised version we also include celebA faces where $z^{(0)}$ is sampled from the prior, and there is a vivid difference between inital and final samples.
+In our revised version we also include celebA faces where $z^{(0)}$ is sampled from the prior, and there is a vivid difference between inital and final samples.\\
 }
 
 
 {\color{blue}
-23. Section VI.E. It is better to stick with the same order of the datasets for all the tasks
+23. Section VI.E. It is better to stick with the same order of the datasets for all the tasks\\
 }
 
-{\color{red} We have updated the order to be Omniglot, Sprites, CelebA for all experiment sections.}
+{\color{red} We have updated the order to be Omniglot, Sprites, CelebA for all experiment sections.\\}
 
 {\color{blue}
-24. Section VI.E.3. Phrases ``less negative log-likelihood'' and ``more negative'' are very confusing, as it seems like log-likelihood is still used whereas ``negative log-likelihood'' is another popular measure. It is better to just say ``larger'' and ``smaller''
+24. Section VI.E.3. Phrases ``less negative log-likelihood'' and ``more negative'' are very confusing, as it seems like log-likelihood is still used whereas ``negative log-likelihood'' is another popular measure. It is better to just say ``larger'' and ``smaller''\\
 }
 
-\hl{Anil - I dont know if I agree with this?}
+\hl{Anil - I dont know if I agree with this?\\}
 
 
 {\color{blue}
-25. Section VI.F.1. Second paragraph, first sentence implies that there will be ``second'' with discussion DAAE with 2D 10-GMM
+25. Section VI.F.1. Second paragraph, first sentence implies that there will be ``second'' with discussion DAAE with 2D 10-GMM\\
 }
 
-{\color{red} We have now removed experiments on the MNIST dataset and replaced them with experiments on te CelebA dataset. So this is no longer in the main body of the text.}
+{\color{red} We have now removed experiments on the MNIST dataset and replaced them with experiments on te CelebA dataset. So this is no longer in the main body of the text.\\}
 
 {\color{blue}
-26. Section VI.G. It would be good to provide time estimates here to understand how much longer iDAAE takes to train
+26. Section VI.G. It would be good to provide time estimates here to understand how much longer iDAAE takes to train\\
 }
 
-{\color{red} This will depend heavily on the type of framework and GPU that you use. Any values we provide will either be trivial, for example, if the iDAAE has $M$ interration we have to compute $M$ times the number of encodings, which may take $M$ times as long, however if you have a very large GPU you may be able to compute $M$ encodings in one go. I did not have access to large GPUs (Ge Force 680 for experiments in the original paper) and so could not do this.}
+{\color{red} This will depend heavily on the type of framework and GPU that you use. Any values we provide will either be trivial, for example, if the iDAAE has $M$ interration we have to compute $M$ times the number of encodings, which may take $M$ times as long, however if you have a very large GPU you may be able to compute $M$ encodings in one go. I did not have access to large GPUs (Ge Force 680 for experiments in the original paper) and so could not do this.\\}
 
 {\color{blue}
-27. Section VII. First two paragraphs can be safely skipped.
+27. Section VII. First two paragraphs can be safely skipped.\\
 }
 
-\hl{Anil -- If people read the whole paper these can go, but if not, maybe not?}
+\hl{Anil -- If people read the whole paper these can go, but if not, maybe not?\\}
 
 {\color{blue}
-28. References. It is better to cite published version of the works rather than their preprints from arxiv, like in [8] - Proceeding of the 31 AAAI Conference on Artificial Intelligence, or in [9] arXiv reference is redundant
+28. References. It is better to cite published version of the works rather than their preprints from arxiv, like in [8] - Proceeding of the 31 AAAI Conference on Artificial Intelligence, or in [9] arXiv reference is redundant\\
 }
 
-{\color{red} In the revised version we have updated reference [8] and removed the redunant arXiv reference in [9] and all other redunant arXiv references.}
+{\color{red} In the revised version we have updated reference [8] and removed the redunant arXiv reference in [9] and all other redunant arXiv references.\\}
 
-29. Appendix A. It is odd to use different names for the same lemmas as in the main body of the paper.
-30. Appendix A. Proof of Lemma A.1. "Similar to proof in Bengio [3]" looks like it was not supposed to be there.
-31. Appendix A. There is no point to state the theorem here as its proof has been provided in the main body of the paper. 
+{\color{blue}
+29. Appendix A. It is odd to use different names for the same lemmas as in the main body of the paper.\\
+}
+
+{\color{red} In the revised version we have re-numbered the Lemmas and Proofs so that they are consistent between the main body of text and the appendix.\\}
+
+{\color{blue}
+30. Appendix A. Proof of Lemma A.1. "Similar to proof in Bengio [3]" looks like it was not supposed to be there.\\
+}
+
+{\color{red} This is supposed to be there. The proof is similar.\\}
+
+{\color{blue}
+31. Appendix A. There is no point to state the theorem here as its proof has been provided in the main body of the paper. \\
+}
+
+{\color{red} In the reivsed version we have removed the theorem from the appendix.\\}
 
 Minor notes:
 1. Page 1, left column, row 24. "...encoded data in THE latent space" - missing article
