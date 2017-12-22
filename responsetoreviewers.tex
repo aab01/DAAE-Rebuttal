@@ -96,7 +96,7 @@ The cost function $E_{x\sim p(x)} E_{z\sim q_\phi(z|x)} \log p(x | z)$ is {\em n
 
 Thanks for spotting this!  There was indeed an extra $i$ subscript in the Equation. However, to ensure clarity we have also rewritten the equation and amended the text immediately below it to avoid potential ambiguity:
 \[ \mathcal{L}_{rec} = \frac{1}{N}\sum_{i=0}^{N-1} \log p_\theta(x|z_i)\]
-where the $z_i$ are obtained via the following sampling process $x_{i=0...N-1} \sim p(x)$, $\tilde{x}_i \sim c(\tilde{x}|x_i)$, $z_i \sim q_\phi(z|\tilde{x}_i)$, and $p(x)$ is distribution of the training data.
+where the $z_i$ are obtained via the following sampling process $x_{i=0...N-1} \sim p(x)$, $\tilde{x}_i \sim c(\tilde{x}|x_i)$, $z_i \sim q_\phi(z|\tilde{x}_i)$, and $p(x)$ is the distribution of the training data.\\
 
 
 {\color{blue}
@@ -105,7 +105,7 @@ The experiments are restricted on simple datasets, which are out of date. In con
 Our choice of datasets was explained in Section VI.B of the original submission.  We acknowledge that in one sense the data might be regarded as simple, but please note that 
 \begin{itemize}
     \item the sprites dataset (of the orignal paper) is a {\em colour} dataset
-    \item the AAE paper \{makhzani2015adversarial\} presented {\color{red} synthesis} results on MNIST, SVHN and heavily cropped faces of the Fray dataset, none of which are in colour.
+    \item the AAE paper \{makhzani2015adversarial\} presented results on MNIST, SVHN and heavily cropped faces from the Fray dataset which is in \textbf{not} in colour.
     \item Kingma's VAE paper presents {\color{red}syntheis} results on Fray and MNIST.
     \item the DVAE paper contains no images at all
 \end{itemize}. 
