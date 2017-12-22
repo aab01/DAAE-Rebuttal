@@ -686,6 +686,12 @@ Methods to draw synthetic data samples from denoising adversarial autoencoders t
 
 
 4. Page 3, left column, rows 9-12. ``In the second step, a random variable ... the Hadamard product'' - missing verb
+
+In our revised version we now say:
+\begin{quote}
+In the second step, a random variable $\epsilon \sim \mathcal{N}(0,1)$ is drawn and the encoding is calculated as $z = \mu_\phi(x) + \sigma_\phi(x) \circ \epsilon$ where $\circ$ is the Hadamard product, see the VAE in Figure \ref{autoencoders}.
+\end{quote}
+
 5. Page 3, left column, row 33. ``... may be formed in the following two ways'' - ``two ways'' are not very clear
 6. Page 5, left column, row 37. ``This will be come ...'' -> ``This will become ...''
 7. Page 5, right column, row 48 (and the same for Appendix). ``... the sampling process in 2'' -> ``... the sampling process in (2)''
