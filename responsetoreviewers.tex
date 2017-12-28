@@ -638,7 +638,13 @@ In our revised version we also include celebA faces where $z^{(0)}$ is sampled f
 26. Section VI.G. It would be good to provide time estimates here to understand how much longer iDAAE takes to train\\
 }
 
-{\color{red} This will depend heavily on the type of framework and GPU that you use. Any values we provide will either be trivial, for example, if the iDAAE has $M$ interration we have to compute $M$ times the number of encodings, which may take $M$ times as long, however if you have a very large GPU you may be able to compute $M$ encodings in one go. I did not have access to large GPUs (Ge Force 680 for experiments in the original paper) and so could not do this.\\}
+{\color{red} This will depend heavily on the type of framework and GPU that you use. Any values we provide will either be trivial, for example, if the iDAAE has $M$ interration we have to compute $M$ times the number of encodings, which may take $M$ times as long, however if you have a very large GPU you may be able to compute $M$ encodings in one go. I did not have access to large GPUs (Ge Force 680 for experiments in the original paper) and so could not do this.\\
+
+To make this clear we have added the following to the paper:
+
+\begin{quote}
+ On the other hand, it is possible to perfrom the intergration process in parallel provieded that sufficient computational resource is available.
+\end{quote}}
 
 {\color{blue}
 27. Section VII. First two paragraphs can be safely skipped.\\
