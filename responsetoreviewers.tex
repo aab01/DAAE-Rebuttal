@@ -1,4 +1,12 @@
-\documentclass{article}
+% !TeX program = pdflatex
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+
+\usepackage{helvet} \renewcommand{\familydefault}{\sfdefault}
 \usepackage[utf8]{inputenc}
 
 \title{TNNLS DAAE Addressing Reviews}
@@ -13,6 +21,8 @@
 \maketitle
 \section*{Introduction}
 We would like to thank the reviewers for the clear efforts put into reading, understanding and providing a critique of this draft. We apologise for the missing final page of references, which was an error that crept in on uploading the manuscript.  The {\em original} final page is attached as an appendix to this document, as well as the revised manuscript. \\
+
+In this response, we have included direct quotations from the three initial reviewers in {\color{blue}blue}; quotations from our original submission are written in {\em italic}, and quotations from other peer reviewed or widely cited/accepted work are in {\color{green}}.
 
 \section*{Reviewer: 1}
 \subsection*{Comments to the Author}
@@ -227,23 +237,27 @@ Unfortunately in the submission process the last page of references were cut off
 {\color{blue}
 The notations should be explained in detail, e.g. $f_\phi$, $p_\theta$.} \\
 
-We believe the reviewer is referring to $p_\phi$ and $p_\theta$ or possibly $f_\psi$? There is no $f_\phi$ in this paper. Notations $p_\phi$ and $p_\theta$ might be used in different ways in the literature, and so when we introduce them, we cite the work of Kingma et al.\\
+We believe the reviewer is referring to $p_\phi$ and $p_\theta$ or possibly $f_\psi$? There is no $f_\phi$ in this paper. Notations $p_\phi$ and $p_\theta$ might be used in different ways in the literature, and so when we introduced them, we cite the work of Kingma et al.\\
 
+From the original paper:
 \begin{quote}
-    learning a \textit{probabilistic encoder} cite\{kingma2013auto\}, $q_\phi(z|x)$, conditioned on observed samples, and a second \textit{probabilistic decoder} cite\{kingma2013auto\},
+    {\it learning a \textit{probabilistic encoder} cite\{kingma2013auto\}, $q_\phi(z|x)$, conditioned on observed samples, and a second \textit{probabilistic decoder} cite\{kingma2013auto\}}
 \end{quote} 
+These sentences remain as-is in the current paper, as we believe them to be correct.
 
 {\color{blue}
 It is better to include some instances in Line 4-9, Column 2, Page2.}\\
+
+\hl{Have we addressed this?}\\
 
 {\color{blue}
 I have no idea why the word “simple” in Line 19, Column 1, Page 3 is bold.}\newline
 
 % We were trying to emphasise ...., but we agree that this was unnecessary.  Removed.
-We agree that this was unnecessary.  Removed.
+We agree that this was unnecessary.  Removed. \newline
 
 {\color{blue}
-It should be $\tilde q_\phi(z|x)$ instead of $\tilde q_\phi(x|z)$ in the last term of the equation in Line 34-35, Column 1 Page 3. }
+It should be $\tilde q_\phi(z|x)$ instead of $\tilde q_\phi(x|z)$ in the last term of the equation in Line 34-35, Column 1 Page 3. }\newline
 
 We have fixed this.
 
@@ -251,7 +265,7 @@ We have fixed this.
 \section{Reviewer: 2}
 
 Comments to the Author
-{\color{blue}
+{\color{blue}\\
 This work introduces two new types of denoising autoencoders, DAAE and iDAAE. The authors propose an adversarial training methodology to address the analytical intractability associated with including a denoising criterion in the variational cost function. While sufficient theoretical development is provided, additional work is needed to validate the proposed solutions empirically. I suggest that the authors address the following comments in order to improve this manuscript:}\newline
 
 {\color{blue}
@@ -262,15 +276,15 @@ This work introduces two new types of denoising autoencoders, DAAE and iDAAE. Th
     \begin{quote}
         Compared  to  the  networks  used  for  MNIST,  deeper networks  were  needed  in  order  for  the  loss  functions  to converge.
     \end{quote}
-    \item We also modified the network of makhzani et al. for the sprite dataset, this is detailed in the original paper as follows:
+    \item We also modified the network of makhzani et al. for the sprite dataset; this was detailed in the original paper as follows:
     \begin{quote}
         For  the  decoder,  we  found  that  it  was  necessary  to  use  a 3-layer  fully  connected  neural  network  in  order  to  capture the  complexity  of  the  sprite  dataset.  However,  by  comparing training and test data reconstruction error during training, we found that using 1000 neurons in each layer led to over-fitting. Rather, we used a 3-layer fully connected neural network with 1000 neurons  in  the  first  layer  and 500 in  each  of  the  last layers.
     \end{quote}
     
 \end{itemize}
 
-{\color{red}
-In our revised version we have incorporated additional experiments on the CelebA dataset, which required us to extend the fully connected AAE to a convolutional version. we include the following in our revised paper:
+
+In our revised version we have incorporated additional experiments on the CelebA dataset, which required us to extend the fully connected AAE to a convolutional version. We now include the following in our revised paper:
 
 \begin{quote}
 For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iDAAE. The models were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. 
@@ -280,7 +294,7 @@ For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iD
 (2) In Section V.A., please indicate the specific nonlinear activation functions you used in the intermediate layers of the network.}\newline
 
 
-We use ReLU's. We have included information on this as follows:
+We use ReLU's. We have included information on this as follows (revisions to the paper):
     \begin{quote}
         Rectifying Linear Units (ReLU) were used between all intermediate layers to encourage the networks to learn representations that capture multi-modal distributions. \newline
         ... \newline
@@ -292,13 +306,13 @@ We use ReLU's. We have included information on this as follows:
 (3) How sensitive are your models to changes in the parameter configuration? Is extensive parameter tuning required in order to achieve your reported results?}\newline
 
 
-We did very little hyper parameter tuning. To make our comparisons as ``fair'' as possible we use the same hyper parameters for each experiment, and the choice for hyper-parameters was based on previous work:
+We did very little hyper parameter tuning. To make our comparisons as ``fair'' as possible we used the same hyper parameters for each experiment, and the choice for hyper-parameters was based on previous work:
     
     \begin{quote}
         In  order  to  compare  models trained on the same datasets, the same network architectures, batch size, learning rate, annealing rate, size of latent code and number of epochs is used for each
     \end{quote}
 
-However, in the revised submission, in which we now include a significant number of CelebA experiments, we have had to train an AAE had not been trained on the CelebA dataset using our proposed architecture. For this, a more extensive hyper parameter search was performed. This is detailed in the revised paper as follows:
+However, in the revised submission, in which we now include a significant number of CelebA experiments, we have had to train an AAE had not been trained on the CelebA dataset using our proposed architecture. For this, a more extensive hyper parameter search was performed. This is detailed in the \textbf{revised paper} as follows:
 
 \begin{quote}
 Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop with learning rate $1 \time 10^{-4}$ and momentum of $0.1$ for training the discriminator. We found that using smaller momentum values lead to more blurred images, however larger momentum values prevented the network from converging and made training unstable. When using Adam instead of RMSprop (on the CelebA dataset specifically) we found that the values in the encodings became very large, and not consistent with the prior. The encoding is made up of $200$ units and the prior $200$D Gaussian. The corruption process used to train the DAAE and iDAAE was additive Gaussian noise. We experimented with different noise level, $\sigma$ between $[0.1, 1.0]$, we found several values in this range to be suitable. For our classification experiments we fixed $\sigma=0.25$ and for synthesis from the DAAE, to demonstrate the effect of sampling, we used $\sigma=1.0$. For the iDAAE we experimented with $M=2, 5, 20, 50$. We found that $M < 5$ (when $\sigma=1.0$), was not sufficient to train an iDAAE. By comparing histograms of encoded data samples to histograms of the prior, for an iDAAE trained with a particular $M$ value, we are able to see whether $M$ is sufficiently larger or not. We found $M=5$ to be sufficiently large.
@@ -308,17 +322,16 @@ Networks were trained for $100$ epochs with a batch size of $64$ using RMSprop w
 {\color{blue}
 (4) You use a standard AAE as a benchmark for evaluating DAAE and iDAAE. It would be helpful to also include a regular autoencoder in your results for reference.}\newline
 
-\begin{itemize}
-    \item Regular autoencoders may not be used for sample synthesis because the latent distribution is not known - only a denoising variant may be used to synthesise samples
-    % \item We could have used an autoencoder for classification
-    % \item We chose to compare to state of art.
-\end{itemize}
-In our revised paper, we perform facial attribute classification on the CelebA dataset and compare to well known models including the VAE and $\beta$-VAE.
+Regular autoencoders may not be used for sample synthesis because the latent distribution is not known - only a denoising variant may be used to synthesise samples. Thus, in order to perform a comparison, we need to do something else.\\
+
+So, in our revised paper, we test classification performance in a standard dataset that is used for generative models: we use the CelebA dataset, and perform facial attribute classification. This allows us to make comparisons to well-known models including the VAE and $\beta$-VAE (both are considered state-of-the-art).  The classification resutls are described in Part F of Section IV. Robustness of parameters is also included in these studies (see for example, Figure 10 of the revised paper).\newline
 
 {\color{blue}
 (5) All of your experimental results use image datasets. Can you comment on the applicability \& expected performance of your methods on non-image data?}\newline
 
-We deliberately describe the method in a very general framework. The models $q_\phi(z|x)$ and $p_\theta(x|z)$ may be instantiated using any differentiable parameterized model.}
+We deliberately describe the method in a very general framework. 
+The models $q_\phi(z|x)$ and $p_\theta(x|z)$ may be instantiated using 
+any differentiable parameterized model.  What we have done is test the models in vastly different image sets that are not described in the paper. For example, we have looked at skin lesion classification, a very narrow sub-domain of image data space. Results hold up extremely well.\newline
 
 {\color{blue}
 (6) In Section VI.D., you state ``The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.'' Please clarify if ``original sample'' means the uncorrupted withheld test data. The uncorrupted data should be used to evaluate the quality of the reconstruction across all methods in order to provide an accurate comparison, regardless of whether the samples were corrupted going into the model.}\newline
@@ -326,7 +339,7 @@ We deliberately describe the method in a very general framework. The models $q_\
 
 We agree. All experiments should have been performed on uncorrupted data. We have now done this and updated the reconstruction values which are shown in \hl{Table IV}.
  
-We have also clarified the writing in the revised version:
+We have also clarified the writing in the revised version of the paper:
 \begin{quote}
 The reconstruction task involves passing samples from the test dataset (i.e. a samples not seen during training) through the trained encoder and decoder to recover a sample similar to the original (uncorrupted) sample. The reconstruction is evaluated by computing the mean squared error between the reconstruction and the original sample.
 \end{quote}
@@ -337,7 +350,7 @@ The reconstruction task involves passing samples from the test dataset (i.e. a s
 
 Standard autoencoders may not be used for sample synthesis
 
- It is becoming rather rare in this field to include information on training time, which will vary based on resource available, choice of framework and machine. The additional computation cost from corruption is minimal (compared to, say, a vanilla AAE, and the computational cost associated with the adversarial loss is dependant on the size of the discriminator. Comparison of training times are likely to be less meaningful. Instead, we had added additional results to demonstrate the benefits of using DAAE or iDAAE compared to other state of art models.
+It is becoming rather rare in this field to include information on training time, which will vary based on resource available, choice of framework and machine. The additional computation cost from corruption is minimal (compared to, say, a vanilla AAE), and the computational cost associated with the adversarial loss is dependant on the size of the discriminator. Comparison of training times are likely to be less meaningful. Instead, we had added additional results to demonstrate the benefits of using DAAE or iDAAE compared to other state of art models.\\
 
 In the revised version, we include facial attribute classification experiments which compare our model to state-of-the-art models rather than PCA, which we hope motivates the models further. Experiments are now comparable with very recent work in this field \hl{Citations needed here.}
 
@@ -349,52 +362,52 @@ The paper introduces two denoising adversarial autoencoders combining concepts f
 
 The paper presents an interesting approach for unsupervised representation learning, combining advantages of previously proposed models. The authors also address the issue of generating samples when a posterior of a latent representation based on corrupted input is matched to prior rather than posterior based on uncorrupted input. The authors propose a Markov Chain to generate samples in this case and provide theoretical guarantees for this although here they highly rely on the previous work by Bengio et al 2013, 2014. 
 
-The main concerns regarding the paper are about the experimental section. Although the authors provide a very thorough evaluation of their methods on three different datasets for three different tasks there are still some moments that could potentially improve the value of the paper. First of all, the comparison is provided only with respect to the adversarial autoencoder. It is a very interesting comparison as it allows to empirically evaluate the influence of denoising training of the adversarial autoencoder. On the other hand the proposed methods can be considered as adversarial extension of denoising autoencoders, and it would be interesting to see how adversarial learning to match the prior works in comparison to Kullback-Leibler minimisation used in DVAE, for example.}
+The main concerns regarding the paper are about the experimental section. Although the authors provide a very thorough evaluation of their methods on three different datasets for three different tasks there are still some moments that could potentially improve the value of the paper. First of all, the comparison is provided only with respect to the adversarial autoencoder. It is a very interesting comparison as it allows to empirically evaluate the influence of denoising training of the adversarial autoencoder. On the other hand the proposed methods can be considered as adversarial extension of denoising autoencoders, and it would be interesting to see how adversarial learning to match the prior works in comparison to Kullback-Leibler minimisation used in DVAE, for example.}\\
 
-\begin{itemize}
-    \item It has already be shown by Makhzani, the benefits of using adversarial rather than KL to match a prior in the case of AAE and VAE.
-    \item For this reason we did not make experiments comparing DVAE with DAAE a priority, rather we focused on comparing DAAE and AAE. \hl{This second point appears completely out of sync with the reviewers comment.}
-\end{itemize}
+Makhzani \hl{citation needed here} has already convincingly shown the benefits of using adversarial training rather than the KL-divergence to match a prior in the case of AAE and VAE. In short, it is because the KL divergence admits an analytic modification to the loss function under only a limited number of distributions.
 
-In our revised version we have performed additional experiments with the CelebA dataset of colour faces, performing facial attribute classification. We now compare results to those obtained for well known models including VAE and $\beta$-VAE. This is in alignment with methods of evaluation in the field.
+For this reason we did not make experiments comparing DVAE with DAAE a priority, rather we focused on comparing DAAE and AAE. \hl{This second point appears completely out of sync with the reviewers comment.}\\
+
+
+In our revised version we have performed additional experiments with the CelebA dataset of colour faces, performing facial attribute classification. We now compare results to those obtained for well known models including VAE and $\beta$-VAE. This is in alignment with methods of evaluation in the field.\\
 
 {\color{blue}
 The second concern regarding the experimental setup is about choice of the prior used in the experiments. Except DAAE with 2D 10-GMM prior that shows poor results and is outperformed by all the competitors the experiments are conducted with Gaussian prior that could have been trained with DVAE and VAE. The main motivation of the proposed methods in compariosn to DVAE claimed by the authors was the possibility of using different more complex priors. It would be good to see this in the experiments.}\newline 
 
-{\color{red} CHECK THAT DVAE is more similar to DAAE than iDAAE: We have now moved the MNIST results to the appendix as we agree that the MNIST results are not meaningful. However, the DVAE is similar to the DAAE, but not the iDAAE. In the iDAAE the $KL$ divergence between $\tilde{q}_\phi(z|x)$ and $p(z)$ is minimized, since $\tilde{q}_\phi(z|x)$ is often a mixture of Gaussian (as stated in the paper), there is no analytic solutional for this $KL$ divergence and so it is still neccesary to implement the model using an adversarial approach.}
-
+{\color{red} CHECK THAT DVAE is more similar to DAAE than iDAAE: We have now moved the MNIST results to the appendix as we agree that the MNIST results are not meaningful. However, the DVAE is similar to the DAAE, but not the iDAAE. In the iDAAE the $KL$ divergence between $\tilde{q}_\phi(z|x)$ and $p(z)$ is minimized, since $\tilde{q}_\phi(z|x)$ is often a mixture of Gaussian (as stated in the paper), there is no analytic solutional for this $KL$ divergence and so it is still neccesary to implement the model using an adversarial approach.}\newline
 
 {\color{blue}(The other drawback mentioned for DVAE that is non-trivial synthesis is also valid for the proposed DAAE but successfully overcome by the authors and could have been overcome for DVAE)}. \newline
 
-\begin{itemize}
-    \item Yes, exactly. Although we did not explore this further, since we were focusing on AAE, this could be an avenue for future work.
+
+Yes, exactly. Although we did not explore this further, since we were focusing on AAE, but this could be an avenue for future work. \hl{we will add a sentence on this in the Conclusions ?  The quote below is unclear}
     \begin{quote}
         6) applying our proposed sampling process to the DVAE \{im2017denoising\} - for which sampling is non-trivial for the same reasons discussed for the DAAE
     \end{quote}
-\end{itemize}
-
 
 Other comments: \newline
 {\color{blue}
-1. The first two paragraphs of the introduction are general and do not mention anything about neural networks although all the references are for papers related to NN. It would be better to either mention in the text that the authors are talking about NNs or to add some not NN references.}
+1. The first two paragraphs of the introduction are general and do not mention anything about neural networks although all the references are for papers related to NN. It would be better to either mention in the text that the authors are talking about NNs or to add some not NN references.}\newline
 
-We chose to present the model and theory in a more general framework and then show that neural networks may be used for implementation.
+We chose to present the model and theory in a more general framework and then show that neural networks may be used for implementation.\\
     
-    In the last paragraph of section IV.B. in the original paper, we say:
+In the last paragraph of section IV.B. in the original paper, we had explained:
     \begin{quote}
-    The analyses of Sections \ref{DAA} and \ref{synthesis} are deliberately general: they do not rely on any specific implementation choice (e.g. particles, artificial neural networks, or parametrised forms of distribution) to capture the model distributions.
+    {\it The analyses of Sections \ref{DAA} and \ref{synthesis} are deliberately general: they do not rely on any specific implementation choice (e.g. particles, artificial neural networks, or parametrised forms of distribution) to capture the model distributions.}
     \end{quote}
-At the start of the next section, section V.A. we talk about the implementation using neural networks.
+
+In addition, at the start of the next section, section V.A. we talk about the implementation using neural networks.\\
 \begin{quote}
-    Under the autoencoder framework, $E_\phi(x)$ is the encoder and $R_\theta(z)$ is the decoder. We used fully connected neural networks for both the encoder and decoder.
+    {\it Under the autoencoder framework, $E_\phi(x)$ is the encoder and $R_\theta(z)$ is the decoder. We used fully connected neural networks for both the encoder and decoder.}
 \end{quote}
 
-Further, in Figure 1, on page 1 where we present our model, the caption in the original paper says:
-\begin{quote}
-    Arrows in this diagram represent mappings implemented using trained neural networks.
-\end{quote}
-and we refer to Figure 1, multiple times in the Introduction.
+Further, in Figure 1, on page 1 where we present our model in the context of other relevant recent work, the caption in the original paper says:
 
+\begin{quote}
+    {\it Arrows in this diagram represent mappings implemented using trained neural networks.}
+\end{quote}
+
+and we refer to Figure 1, multiple times in the Introduction.  We have now modified Figure 1 to hilight its importance and we now include the word {\em deep} \hl{in a modification of the caption of Figure 1.}
+ 
 
 {\color{blue}
 2. In the list of references there are only 21 papers whereas in the text works are cited upto 24} \newline
@@ -404,16 +417,17 @@ In the submission process the last page was unintentionally left out. The rest o
 {\color{blue}
 3. Section I.A First paragraph. "... there is a ground truth label for every training image." - It has not been specified before that classification of images only is considered.} \newline
 
-Thankyou for catching this, his has been replaced by:
+Thank you for catching this, his has been replaced by:
 \begin{quote}
     because there is a ground truth label for every training data sample.
 \end{quote}
 We deliberately keep the method general. \newline
 
 {\color{blue}
-4. Section I.A Autoencoders do not have to be probabilistic generally speaking. It would be better to mention it and probabilistic interpretation is considered here.}
+4. Section I.A Autoencoders do not have to be probabilistic, generally speaking. It would be better to mention it and probabilistic interpretation is considered here.}
 
-It is advantageous for us to talk about autoencoders as probabilistic models - since our notation follows that of a probabilistic framework. Further, VAE's introduced by Kingma et al. were introduced in a probabilistic framework, this is why we cite this work, when introducing autoencoders in a probabilistic framework: 
+It is advantageous for us to talk about autoencoders as probabilistic models -- since our notation follows that of a probabilistic framework. Further, VAE's introduced by Kingma et al. were introduced in a probabilistic framework, this is why we cite this work, when introducing autoencoders in a probabilistic framework: 
+
     \begin{quote}
     \textit{probabilistic encoder} cite\{kingma2013auto\}, $q_\phi(z|x)$, conditioned on observed samples, and a second \textit{probabilistic decoder} cite\{kingma2013auto\}
     \end{quote}
@@ -422,6 +436,7 @@ Indeed, Kingma et al. introduce autoencoders as follows:
     \begin{quote}
         learning a \textit{probabilistic encoder} cite\{kingma2013auto\}, $q_\phi(z|x)$, conditioned on observed samples, and a second \textit{probabilistic decoder} cite\{kingma2013auto\},
     \end{quote} 
+
 Please see our response to Reviewer 1 regarding the generality of a probabilistic treatment, under which deterministic autoencoders are merely a special case.
 
 {\color{blue}
