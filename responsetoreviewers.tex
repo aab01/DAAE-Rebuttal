@@ -82,7 +82,7 @@ Our reason for explicitly pointing this out is to generalise to the case where t
     \end{quote}
 In [4], there is no latent space in the same sense as that for VAEs or GANs. To improve the clarity and visibility of this idea, we have added references:
 \begin{quote}
-    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2015denoising\}
+    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2017denoising\}
 \end{quote}
 Why did we do this?  It allowed us to treat encoding in the most general way, so that we can bring the approach suggested in [4] under the same umbrella as other models. Taking this approach not only allows us to acknowledge Bengio's DAE, but also to distinguish between the ``corruption'' of that model and the noise process of our proposed DAAE more clearly. For example, the approach of [4] does not explicitly define a latent space.  It is also worth pointing out that taking Bengio's corruption process [4] to the extreme is equivalent to having a latent representation which is Gaussian noise \{bachman2015variational\}; so, this way of thinking seems to be self-consistent and flexible.\\
 
@@ -178,7 +178,7 @@ Further, note that the distribution of encoded samples in the DAAE is a mixture 
 \begin{quote}
 If $q_\phi(z|\tilde{x})$ is chosen to be Gaussian, then in many cases $\tilde{q}_\phi(z|x) = \int q_\phi(z|\tilde{x})c(\tilde{x}|x)d \tilde{x}$ will be a mixture of Gaussians.
 \end{quote}
-an explanation that was also expressed by Im et al. \{im2015denoising\}.\\
+an explanation that was also expressed by Im et al. \{im2017denoising\}.\\
 
 
 % \begin{itemize}
@@ -367,9 +367,9 @@ The second concern regarding the experimental setup is about choice of the prior
 {\color{blue}(The other drawback mentioned for DVAE that is non-trivial synthesis is also valid for the proposed DAAE but successfully overcome by the authors and could have been overcome for DVAE)}. \newline
 
 \begin{itemize}
-    \item Yes, exactly. Although we did not explore this further, since we were focusing on AAE, this could be an avenue for future work. We have added this to the Future Work section of our paper to hilight the significance of our work for DVAEs as well as DAAEs.
+    \item Yes, exactly. Although we did not explore this further, since we were focusing on AAE, this could be an avenue for future work.
     \begin{quote}
-        6) applying our proposed sampling process to the DVAE \{im2015denoising\} - for which sampling is non-trivial for the same reasons discussed for the DAAE
+        6) applying our proposed sampling process to the DVAE \{im2017denoising\} - for which sampling is non-trivial for the same reasons discussed for the DAAE
     \end{quote}
 \end{itemize}
 
@@ -428,7 +428,7 @@ Please see our response to Reviewer 1 regarding the generality of a probabilisti
 5. Section I.A. Last paragraph. It may be worth to add some references here.} \newline
 We have added references as follows:
 \begin{quote}
-    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2015denoising\}
+    In some situations the encoding distribution is chosen rather than learned \{bengio2013generalized\}, in other situations the encoder and decoder are learned simultaneously \{kingma2013auto, makhzani2015adversarial, im2017denoising\}
 \end{quote}
 
 {\color{blue}
@@ -461,7 +461,10 @@ We thank the reviewer for the comment.  Perhaps this will clarify: At the end of
 
 In contrast, at the start of section I.D. we are beginning to introduce the work of Im et al. Cited in paragraph two if Section I.D. who introduce DVAEs, which are VAE's with denoising.
 
-\hl{We should now say we have done something to clarify this -- will check on this at some point in the next few days.}\\
+In our revised version, end Section I.C. with the following:
+\begin{quote}
+     no corruption process was introduced by Kingma et al. during VAE training.
+\end{quote}
 
 {\color{blue}
 9. Section II.A. It is unclear why it is the only section uses notation w and v instead of x and z, moreover w and v are undefined}\\
@@ -650,7 +653,7 @@ To make this clear we have added the following to the paper:
 27. Section VII. First two paragraphs can be safely skipped.\\
 }
 
-\hl{Anil -- If people read the whole paper these can go, but if not, maybe not?\\}
+In our revised paper we have removed these two paragrpahs.
 
 {\color{blue}
 28. References. It is better to cite published version of the works rather than their preprints from arxiv, like in [8] - Proceeding of the 31 AAAI Conference on Artificial Intelligence, or in [9] arXiv reference is redundant\\
@@ -728,10 +731,14 @@ We have addressed this in our revised version.
 We have addressed this in our revised version.
 
 9. Page 8, left column, row 7. ``Prior indicated...'' -> ``Prior indicates...''
+
+
 10. Page 13, left column, row 23. Should it be ``testing dataset''?
 
 
 \section{Additional Changes}
+
+We added a 
 
 
 \end{document}
