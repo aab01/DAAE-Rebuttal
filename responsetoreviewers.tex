@@ -32,7 +32,7 @@ Whilst we do not question that there exists a relation of the proposed DAAE and 
 
 {\color{blue} Some benefits of the proposed method are highlighted when presenting the method but not well supported in the experiments. }\\
 
-We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. We have performed attribute classification experiments and achieve competitive or superior performance in synthesis and classification compared to the AAE and VAE. In addition, because the field is moving fast, we also provide performance comparisons to the $\beta$-VAE\\
+We agree with this statement, and have now performed much more extensive experiments in the widely used celebA dataset. We have performed attribute classification experiments and achieve competitive or superior performance in synthesis and classification compared to the AAE and VAE. In addition, because the field is moving fast, we also provide performance comparisons to the $\beta$-VAE.\\
 
 %\hl{We have introduced tests on robustness to specific image transforms for classification, and we believe these reflect real and non-trivial performance benefits.} \\
 
@@ -42,7 +42,7 @@ We are very grateful to the reviewer for this comment, and the effort spent on i
 
 {\color{blue} The criteria of evaluation and datasets in the experiment part are not satisfactory. The results are not sufficient for a good publication. I suggest the authors proofread and rewrite the paper and provide strong experimental results to support the motivation of the method.}\\
 
-We have moved the MNIST results to an appendix. Extensive experiments have now been conducted on the CelebA face database. These experiments on image generation (synthesis), strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of facial attributes from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE as well as the VAE, beta-VAE and DIP-VAE, achieving competitive or superior performance on most attributes. The classification experiments are also very useful for comparing against previous work, and address another issue (see later) regarding the interpretation of performance results for synthesis.\\
+We have moved the MNIST results to an appendix. Extensive experiments have now been conducted on the CelebA face database. These experiments on image generation (synthesis), strengthen the comparison of both the proposed iDAAE and DAAE to comparable methods. In addition, we demonstrate classification of facial attributes from latent space representations. We provide direct comparisons of the DAAE and iDAAE performance for classification with the AAE as well as the VAE and beta-VAE, achieving competitive or superior performance on most attributes. The classification experiments are also very useful for comparing against previous work, and address another issue (see later) regarding the interpretation of performance results for synthesis.\\
 
 
 \subsection*{Detailed comments}
@@ -289,7 +289,7 @@ In our revised version we have incorporated additional experiments on the CelebA
 
 \begin{quote}
 {\color{red}
-For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iDAAE. The models were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. }
+The encoder and decoder were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. }
 \end{quote}
 
 {\color{blue}
