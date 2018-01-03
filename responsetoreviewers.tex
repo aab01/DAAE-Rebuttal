@@ -278,7 +278,8 @@ This work introduces two new types of denoising autoencoders, DAAE and iDAAE. Th
     \end{quote}
     \item We also modified the network of Makhzani et al. for the sprite dataset; this was detailed in the original paper as follows:
     \begin{quote}
-        For  the  decoder,  we  found  that  it  was  necessary  to  use  a 3-layer  fully  connected  neural  network  in  order  to  capture the  complexity  of  the  sprite  dataset.  However,  by  comparing training and test data reconstruction error during training, we found that using 1000 neurons in each layer led to over-fitting. Rather, we used a 3-layer fully connected neural network with 1000 neurons  in  the  first  layer  and 500 in  each  of  the  last layers.
+        {\it
+        For  the  decoder,  we  found  that  it  was  necessary  to  use  a 3-layer  fully  connected  neural  network  in  order  to  capture the  complexity  of  the  sprite  dataset.  However,  by  comparing training and test data reconstruction error during training, we found that using 1000 neurons in each layer led to over-fitting. Rather, we used a 3-layer fully connected neural network with 1000 neurons  in  the  first  layer  and 500 in  each  of  the  last layers.}
     \end{quote}
     
 \end{itemize}
@@ -287,7 +288,8 @@ This work introduces two new types of denoising autoencoders, DAAE and iDAAE. Th
 In our revised version we have incorporated additional experiments on the CelebA dataset, which required us to extend the fully connected AAE to a convolutional version. We now include the following in our revised paper:
 
 \begin{quote}
-For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iDAAE. The models were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. 
+{\color{red}
+For the CelebA dataset $3$ types of model were trained: an AAE, a DAAE and an iDAAE. The models were constructed with convolutional layers, rather than fully connected layers since the CelebA dataset is more complex than the Toronto face dataset use by Makhzani et al. \{makhzani2015adversarial\}. The encoder and decoder consisted of $4$ convolutional layers with a similar structure to that of the DCGAN proposed by Radford et al. \{radford2015unsupervised\}. We used a $3$-layer fully connected network for the discriminator. }
 \end{quote}
 
 {\color{blue}
